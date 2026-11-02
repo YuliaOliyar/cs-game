@@ -23,8 +23,8 @@
 			<?php if ( has_custom_logo() ) : ?>
 				<?php the_custom_logo(); ?>
 			<?php else : ?>
-				<a class="logo-text" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-					<span class="logo-text__mark">CS</span><span class="logo-text__word">Game</span>
+				<a class="logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+					<?php get_template_part( 'template-parts/logo', null, array( 'id' => 'head', 'height' => 44 ) ); ?>
 				</a>
 			<?php endif; ?>
 		</div>

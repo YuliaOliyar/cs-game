@@ -63,7 +63,8 @@ button { font: inherit; color: inherit; }
 .section__title { font-size: clamp(1.35rem, 1.1rem + 1vw, 1.75rem); }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
 
-.content-layout { display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 32px; }
+.content-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; margin-top: 32px; }
+.content-layout > * { min-width: 0; }
 @media (min-width: 1024px) {
 	.content-layout { grid-template-columns: 280px minmax(0, 1fr); align-items: start; }
 	.content-layout__aside { position: sticky; top: 88px; display: grid; gap: 20px; }
@@ -130,6 +131,12 @@ a.label:hover { color: var(--gold); }
 	box-shadow: 0 4px 14px rgba(245, 184, 46, .35);
 }
 .custom-logo { max-height: 48px; width: auto; }
+.logo-link { display: inline-flex; align-items: center; }
+.site-logo__svg { display: block; height: auto; max-width: 100%; }
+.logo-link .site-logo__svg { width: 195px; }
+.site-footer__logo { display: inline-block; margin-bottom: 14px; }
+.site-footer__logo .site-logo__svg { width: 176px; }
+@media (max-width: 480px) { .logo-link .site-logo__svg { width: 160px; } }
 
 .primary-nav .menu { display: flex; align-items: center; gap: 4px; margin: 0; padding: 0; list-style: none; }
 .primary-nav .menu > li { position: relative; }
@@ -180,7 +187,7 @@ a.label:hover { color: var(--gold); }
 }
 .byline__person { display: inline-flex; align-items: center; gap: 10px; color: var(--text); }
 .byline__person:hover { color: var(--gold); }
-.byline__person .avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.byline__person .avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; overflow: hidden; background: var(--surface-3); font-size: 0; flex: none; }
 .byline__person small { display: block; color: var(--muted); font-size: .75rem; line-height: 1.2; }
 .byline__person strong { font-size: .95rem; }
 .byline .meta-dates { margin-left: auto; }
@@ -200,7 +207,7 @@ a.label:hover { color: var(--gold); }
 
 .casino-row {
 	position: relative; display: grid; align-items: center; gap: 16px 24px;
-	grid-template-columns: 44px minmax(200px, 1.2fr) minmax(180px, 1.3fr) minmax(150px, 1fr) 170px;
+	grid-template-columns: 44px minmax(300px, 1.5fr) minmax(170px, 1.2fr) minmax(140px, .9fr) 160px;
 	padding: 20px 22px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
 	transition: border-color .15s, transform .15s;
 }
@@ -242,6 +249,8 @@ a.label:hover { color: var(--gold); }
 }
 @media (max-width: 640px) {
 	.casino-row { grid-template-columns: 1fr; padding: 22px 16px 16px; }
+	.casino-row__brand { flex-direction: column; align-items: flex-start; gap: 10px; }
+	.casino-row__brand .logo-box { width: 100%; max-width: 260px; height: auto; aspect-ratio: 2 / 1; }
 	.casino-row__pos { position: absolute; top: 14px; right: 14px; width: 32px; height: 32px; font-size: .9rem; }
 	.casino-row__adv, .casino-row__bonus, .casino-row__cta { grid-column: auto; }
 	.casino-row__cta { grid-template-columns: 1fr 1fr; }
@@ -250,12 +259,12 @@ a.label:hover { color: var(--gold); }
 
 /* Logo box --------------------------------------------------------------- */
 .logo-box {
-	display: grid; place-items: center; flex: none; width: 96px; height: 60px; padding: 8px;
-	border-radius: 10px; background: var(--surface-2); border: 1px solid var(--border); overflow: hidden;
+	display: grid; place-items: center; flex: none; width: 150px; height: 84px; padding: 0;
+	border-radius: 12px; background: var(--surface-2); border: 1px solid var(--border); overflow: hidden;
 }
-.logo-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.logo-box--fallback { font-family: var(--font-head); font-weight: 800; font-size: 1.3rem; color: var(--gold); }
-.logo-box--lg { width: 150px; height: 92px; }
+.logo-box img { width: 100%; height: 100%; object-fit: contain; }
+.logo-box--fallback { font-family: var(--font-head); font-weight: 800; font-size: 1.6rem; color: var(--gold); }
+.logo-box--lg { width: 240px; height: 134px; border-radius: 14px; }
 
 /* Disclaimer ------------------------------------------------------------- */
 .disclaimer {
@@ -329,7 +338,7 @@ a.label:hover { color: var(--gold); }
 
 /* Author card ------------------------------------------------------------ */
 .author-card { display: flex; gap: 22px; padding: 24px; margin: 40px 0; }
-.author-card__photo .avatar { width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); }
+.author-card__photo .avatar { overflow: hidden; background: var(--surface-3); font-size: 0; width: 110px; height: 110px; border-radius: 50%; object-fit: cover; border: 3px solid var(--gold); }
 .author-card__kicker { margin: 0 0 4px; color: var(--gold); font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 700; }
 .author-card__name { font-size: 1.35rem; margin: 0; }
 .author-card__name a { color: #fff; }
@@ -425,13 +434,13 @@ label { font-size: .9rem; color: var(--text-2); }
 .bonus-list { display: grid; gap: 14px; margin: 0; padding: 0; list-style: none; }
 .bonus-card { position: relative; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); }
 .bonus-card[hidden] { display: none; }
-.bonus-card__main { display: grid; grid-template-columns: 130px minmax(0, 1fr) 210px; gap: 18px 24px; align-items: center; padding: 20px 22px 20px 56px; }
+.bonus-card__main { display: grid; grid-template-columns: 170px minmax(0, 1fr) 210px; gap: 18px 24px; align-items: center; padding: 20px 22px 20px 56px; }
 .bonus-card__pos {
 	position: absolute; top: 20px; left: 14px; display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
 	background: var(--surface-3); font-weight: 800; font-size: .85rem; font-family: var(--font-head);
 }
 .bonus-card__logo { display: grid; gap: 8px; justify-items: center; }
-.bonus-card__logo .logo-box { width: 120px; height: 72px; }
+.bonus-card__logo .logo-box { width: 170px; height: 94px; }
 .bonus-card__labels { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
 .bonus-card__title { font-size: 1.3rem; margin: 0 0 2px; }
 .bonus-card__title a { color: var(--gold-2); }
@@ -458,9 +467,9 @@ label { font-size: .9rem; color: var(--text-2); }
 }
 .bonus-list .bonus-card:not(:has(.bonus-card__pos)) .bonus-card__main { padding-left: 22px; }
 @media (max-width: 860px) {
-	.bonus-card__main { grid-template-columns: 110px 1fr; padding-left: 52px; }
+	.bonus-card__main { grid-template-columns: 150px 1fr; padding-left: 52px; }
 	.bonus-card__actions { grid-column: 1 / -1; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); }
-	.bonus-card__logo .logo-box { width: 100px; height: 64px; }
+	.bonus-card__logo .logo-box { width: 150px; height: 84px; }
 }
 @media (max-width: 520px) {
 	.bonus-card__main { grid-template-columns: 1fr; padding: 18px 16px; }
@@ -505,7 +514,7 @@ label { font-size: .9rem; color: var(--text-2); }
 .other-bonuses { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 14px; }
 .mini-bonus { display: flex; flex-direction: column; gap: 10px; padding: 18px; }
 .mini-bonus__head { display: flex; align-items: center; gap: 12px; }
-.mini-bonus__head .logo-box { width: 72px; height: 48px; }
+.mini-bonus__head .logo-box { width: 110px; height: 62px; }
 .mini-bonus__title { font-size: 1.05rem; margin: 0; color: var(--gold-2); }
 .mini-bonus__text { font-size: .9rem; margin: 0; flex: 1; }
 .mini-bonus__actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
@@ -516,7 +525,7 @@ label { font-size: .9rem; color: var(--text-2); }
 .casino-hero .page-head__title { margin-bottom: 8px; }
 .casino-hero__bonus { margin: 10px 0 6px; font-family: var(--font-head); font-weight: 800; font-size: 1.5rem; color: var(--gold-2); }
 .casino-hero__cta { display: grid; gap: 10px; }
-@media (max-width: 860px) { .casino-hero { grid-template-columns: 1fr; } }
+@media (max-width: 860px) { .casino-hero { grid-template-columns: 1fr; } .casino-hero .logo-box--lg { width: 100%; max-width: 300px; height: auto; aspect-ratio: 16 / 9; } }
 
 .score { display: grid; grid-template-columns: 200px 1fr 1fr; gap: 24px; margin: 20px 0; padding: 24px; }
 .score__total { display: grid; gap: 6px; justify-items: center; align-content: center; padding: 16px; border-radius: var(--radius-sm); background: var(--surface-2); text-align: center; }
@@ -594,6 +603,17 @@ label { font-size: .9rem; color: var(--text-2); }
 
 .slot-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 16px; }
 .slot-grid--4 { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+@media (max-width: 600px) {
+	.slot-grid, .slot-grid--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+	.slot-card__body { padding: 10px 10px 12px; }
+	.slot-card__title { font-size: .92rem; }
+	.slot-card__meta .stars { font-size: .72rem; letter-spacing: 1px; }
+	.slot-card__meta .stars__num { font-size: .78rem; }
+	.slot-card__meta .label { font-size: .7rem; padding: 2px 7px; }
+	.slot-card__play { opacity: 1; background: transparent; align-items: flex-end; justify-content: flex-end; padding: 8px; font-size: .75rem; }
+	.filter__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+	.filter__actions .btn { flex: 1; }
+}
 .slot-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform .15s, border-color .15s; }
 .slot-card:hover { transform: translateY(-3px); border-color: var(--border-strong); }
 .slot-card__img { position: relative; display: block; aspect-ratio: 4 / 3; background: var(--surface-2); overflow: hidden; }
@@ -697,4 +717,8 @@ label { font-size: .9rem; color: var(--text-2); }
 
 @media (prefers-reduced-motion: reduce) {
 	*, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
+}
+
+@media (min-width: 641px) {
+	.casino-row__brand .logo-box { width: 180px; height: 100px; }
 }

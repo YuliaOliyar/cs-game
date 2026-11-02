@@ -39,7 +39,12 @@ $here  = isset( $_SERVER['HTTP_HOST'], $_SERVER['REQUEST_URI'] )
 	<?php endif; ?>
 	<ul>
 		<?php foreach ( $items as $item ) : ?>
-			<?php $active = trailingslashit( $item->url ) === $here; ?>
+			<?php
+			$active = trailingslashit( $item->url ) === $here;
+			if ( $active && 'horizontal' === $a['style'] && $a['current'] ) {
+				continue;
+			}
+			?>
 			<li<?php echo $active ? ' class="is-active"' : ''; ?>>
 				<a href="<?php echo esc_url( $item->url ); ?>"<?php echo $active ? ' aria-current="page"' : ''; ?>>
 					<?php echo esc_html( $item->title ); ?>

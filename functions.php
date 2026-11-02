@@ -45,7 +45,7 @@ function csgame_setup() {
 		)
 	);
 
-	add_image_size( 'csgame-logo', 240, 120, false );
+	add_image_size( 'csgame-logo', 480, 270, false );
 	add_image_size( 'csgame-card', 640, 360, true );
 	add_image_size( 'csgame-slot', 400, 300, true );
 
@@ -123,3 +123,13 @@ add_filter( 'excerpt_more', function () { return '…'; } );
 function csgame_aff_attrs() {
 	return 'target="_blank" rel="nofollow sponsored noopener"';
 }
+
+/**
+ * SVG favicon fallback when no Site Icon is set.
+ */
+function csgame_favicon() {
+	if ( ! has_site_icon() ) {
+		echo '<link rel="icon" type="image/svg+xml" href="' . esc_url( CSGAME_URI . '/assets/img/favicon.svg' ) . '">' . "\n";
+	}
+}
+add_action( 'wp_head', 'csgame_favicon', 2 );

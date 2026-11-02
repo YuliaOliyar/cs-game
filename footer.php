@@ -12,10 +12,9 @@
 	<div class="container">
 		<div class="site-footer__top">
 			<div class="site-footer__about">
-				<p class="site-footer__title">
-					<span class="logo-text__mark">CS</span>
-					<?php echo esc_html( csgame_mod( 'csgame_footer_title' ) ); ?>
-				</p>
+				<a class="site-footer__logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" aria-label="<?php echo esc_attr( csgame_mod( 'csgame_footer_title' ) ); ?>">
+					<?php get_template_part( 'template-parts/logo', null, array( 'id' => 'foot', 'height' => 40 ) ); ?>
+				</a>
 				<div class="site-footer__text">
 					<?php echo wpautop( wp_kses_post( csgame_mod( 'csgame_footer_text' ) ) ); // phpcs:ignore ?>
 				</div>
