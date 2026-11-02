@@ -8,6 +8,7 @@
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
 <link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="icon" type="image/svg+xml" href="../wp-content/themes/cs-game/assets/img/favicon.svg">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -54,8 +55,29 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <header class="site-header">
 	<div class="container site-header__inner">
 		<div class="site-logo">
-							<a class="logo-text" href="../index.html" rel="home">
-					<span class="logo-text__mark">CS</span><span class="logo-text__word">Game</span>
+							<a class="logo-link" href="../index.html" rel="home">
+					<svg class="site-logo__svg" width="195" height="44" viewBox="0 0 230 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CS Game">
+	<defs>
+		<linearGradient id="csg-head" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#ffe08a"/><stop offset=".55" stop-color="#f5b82e"/><stop offset="1" stop-color="#c7860f"/>
+		</linearGradient>
+	</defs>
+	<g transform="translate(26 26)">
+		<circle r="24" fill="url(#csg-head)"/>
+		<g fill="#0d0f15">
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(0)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(60)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(120)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(180)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(240)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(300)"/>
+					</g>
+		<circle r="15.5" fill="#0d0f15"/>
+		<circle r="15.5" fill="none" stroke="url(#csg-head)" stroke-width="1.5" stroke-dasharray="2.2 2.6"/>
+		<text y="5.2" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="14.5" fill="url(#csg-head)">CS</text>
+	</g>
+	<text x="60" y="35" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="27" fill="#fff" letter-spacing="-.6">CS<tspan fill="url(#csg-head)" dx="6">Game</tspan></text>
+</svg>
 				</a>
 					</div>
 
@@ -64,11 +86,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		</button>
 
 		<nav id="primary-nav" class="primary-nav" aria-label="Hlavní menu">
-			<ul id="menu-hlavni-menu" class="menu"><li id="menu-item-41" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-41"><a href="../index.html">Kasina</a></li>
-<li id="menu-item-42" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42"><a href="../casino-bonusy/index.html">Bonusy</a></li>
-<li id="menu-item-43" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-43"><a href="../casino/automaty/index.html">Automaty</a></li>
-<li id="menu-item-44" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44"><a href="../recenze.html">Recenze</a></li>
-<li id="menu-item-45" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-45"><a href="index.html" aria-current="page">Novinky</a></li>
+			<ul id="menu-hlavni-menu" class="menu"><li id="menu-item-120" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-120"><a href="../index.html">Kasina</a></li>
+<li id="menu-item-121" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-121"><a href="../casino-bonusy/index.html">Bonusy</a></li>
+<li id="menu-item-122" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-122"><a href="../casino/automaty/index.html">Automaty</a></li>
+<li id="menu-item-123" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-123"><a href="../recenze/index.html">Recenze</a></li>
+<li id="menu-item-124" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-124"><a href="index.html" aria-current="page">Novinky</a></li>
 </ul>		</nav>
 	</div>
 </header>
@@ -81,111 +103,102 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <div class="container">
 	<header class="page-head">
 		<h1 class="page-head__title">Novinky</h1>
+					<div class="page-head__intro"><p>Zprávy ze světa online kasin, velké výhry, nové licence a bonusové akce.</p>
+</div>
 			</header>
 
 			<nav class="cat-nav" aria-label="Kategorie">
 			<a class="chip is-active" href="index.html">Vše</a>
+							<a class="chip" href="../category/bonusy/index.html">Bonusy</a>
+							<a class="chip" href="../category/legislativa/index.html">Legislativa</a>
+							<a class="chip" href="../category/rady/index.html">Rady</a>
 							<a class="chip" href="../category/vyhry/index.html">Výhry</a>
 					</nav>
 	
 			<div class="post-grid">
-			<article class="post-card post-40 post type-post status-publish format-standard hentry category-vyhry">
-	<a class="post-card__img" href="../hrac-ve-fortune-vyhral-temer-pul-milionu-4/index.html">
-		<span class="post-card__ph"></span>	</a>
+			<article class="post-card post-108 post type-post status-publish format-standard has-post-thumbnail hentry category-vyhry">
+	<a class="post-card__img" href="../hrac-ve-fortune-vyhral-temer-pul-milionu-korun/index.html">
+		<img width="640" height="360" src="../wp-content/uploads/2026/11/post-1-640x360.png" class="attachment-csgame-card size-csgame-card wp-post-image" alt="" loading="lazy" decoding="async" />	</a>
 	<div class="post-card__body">
-		<h3 class="post-card__title"><a href="../hrac-ve-fortune-vyhral-temer-pul-milionu-4/index.html">Hráč ve Fortune vyhrál téměř půl milionu #4</a></h3>
+		<h3 class="post-card__title"><a href="../hrac-ve-fortune-vyhral-temer-pul-milionu-korun/index.html">Hráč ve Fortune vyhrál téměř půl milionu korun</a></h3>
 		<p class="post-card__meta muted">
 			<a href="../author/admin/index.html">Anežka Nováková</a>
 			·
-			<time datetime="2026-11-02T09:57:51+00:00">November 2, 2026</time>
+			<time datetime="2026-11-02T10:54:05+00:00">2. 11. 2026</time>
 		</p>
-		<p class="post-card__excerpt">Šťastný hráč si odnesl výhru na automatu během pár minut.</p>
+		<p class="post-card__excerpt">Šťastný hráč roztočil automat s nízkou sázkou a během pár minut si odnesl výhru přes 480 000 Kč.</p>
 	</div>
 </article>
-<article class="post-card post-39 post type-post status-publish format-standard hentry category-vyhry">
-	<a class="post-card__img" href="../hrac-ve-fortune-vyhral-temer-pul-milionu-3/index.html">
-		<span class="post-card__ph"></span>	</a>
+<article class="post-card post-110 post type-post status-publish format-standard has-post-thumbnail hentry category-legislativa">
+	<a class="post-card__img" href="../ministerstvo-financi-udelilo-novou-licenci/index.html">
+		<img width="640" height="360" src="../wp-content/uploads/2026/11/post-2-640x360.png" class="attachment-csgame-card size-csgame-card wp-post-image" alt="" loading="lazy" decoding="async" />	</a>
 	<div class="post-card__body">
-		<h3 class="post-card__title"><a href="../hrac-ve-fortune-vyhral-temer-pul-milionu-3/index.html">Hráč ve Fortune vyhrál téměř půl milionu #3</a></h3>
+		<h3 class="post-card__title"><a href="../ministerstvo-financi-udelilo-novou-licenci/index.html">Ministerstvo financí udělilo novou licenci</a></h3>
 		<p class="post-card__meta muted">
 			<a href="../author/admin/index.html">Anežka Nováková</a>
 			·
-			<time datetime="2026-11-02T09:57:51+00:00">November 2, 2026</time>
+			<time datetime="2026-11-01T10:54:06+00:00">1. 11. 2026</time>
 		</p>
-		<p class="post-card__excerpt">Šťastný hráč si odnesl výhru na automatu během pár minut.</p>
+		<p class="post-card__excerpt">Na český trh vstupuje další online casino. Přinášíme přehled, co nová licence znamená pro hráče.</p>
 	</div>
 </article>
-<article class="post-card post-38 post type-post status-publish format-standard hentry category-vyhry">
-	<a class="post-card__img" href="../hrac-ve-fortune-vyhral-temer-pul-milionu-2/index.html">
-		<span class="post-card__ph"></span>	</a>
+<article class="post-card post-112 post type-post status-publish format-standard has-post-thumbnail hentry category-bonusy">
+	<a class="post-card__img" href="../free-spiny-zdarma-kde-je-ziskat-tento-mesic/index.html">
+		<img width="640" height="360" src="../wp-content/uploads/2026/10/post-3-640x360.png" class="attachment-csgame-card size-csgame-card wp-post-image" alt="" loading="lazy" decoding="async" />	</a>
 	<div class="post-card__body">
-		<h3 class="post-card__title"><a href="../hrac-ve-fortune-vyhral-temer-pul-milionu-2/index.html">Hráč ve Fortune vyhrál téměř půl milionu #2</a></h3>
+		<h3 class="post-card__title"><a href="../free-spiny-zdarma-kde-je-ziskat-tento-mesic/index.html">Free spiny zdarma: kde je získat tento měsíc</a></h3>
 		<p class="post-card__meta muted">
 			<a href="../author/admin/index.html">Anežka Nováková</a>
 			·
-			<time datetime="2026-11-02T09:57:51+00:00">November 2, 2026</time>
+			<time datetime="2026-10-31T10:54:06+00:00">31. 10. 2026</time>
 		</p>
-		<p class="post-card__excerpt">Šťastný hráč si odnesl výhru na automatu během pár minut.</p>
+		<p class="post-card__excerpt">Vybrali jsme nejlepší akce s free spiny bez vkladu, které můžete využít ještě tento měsíc.</p>
 	</div>
 </article>
-<article class="post-card post-37 post type-post status-publish format-standard hentry category-vyhry">
-	<a class="post-card__img" href="../hrac-ve-fortune-vyhral-temer-pul-milionu-1/index.html">
-		<span class="post-card__ph"></span>	</a>
+<article class="post-card post-114 post type-post status-publish format-standard has-post-thumbnail hentry category-vyhry">
+	<a class="post-card__img" href="../jackpot-na-automatu-kajot-padl-potreti-za-rok/index.html">
+		<img width="640" height="360" src="../wp-content/uploads/2026/10/post-4-640x360.png" class="attachment-csgame-card size-csgame-card wp-post-image" alt="" loading="lazy" decoding="async" />	</a>
 	<div class="post-card__body">
-		<h3 class="post-card__title"><a href="../hrac-ve-fortune-vyhral-temer-pul-milionu-1/index.html">Hráč ve Fortune vyhrál téměř půl milionu #1</a></h3>
+		<h3 class="post-card__title"><a href="../jackpot-na-automatu-kajot-padl-potreti-za-rok/index.html">Jackpot na automatu Kajot padl potřetí za rok</a></h3>
 		<p class="post-card__meta muted">
 			<a href="../author/admin/index.html">Anežka Nováková</a>
 			·
-			<time datetime="2026-11-02T09:57:51+00:00">November 2, 2026</time>
+			<time datetime="2026-10-30T10:54:07+00:00">30. 10. 2026</time>
 		</p>
-		<p class="post-card__excerpt">Šťastný hráč si odnesl výhru na automatu během pár minut.</p>
+		<p class="post-card__excerpt">Progresivní jackpot na klasickém ovocném automatu znovu vyplatil šestimístnou částku.</p>
+	</div>
+</article>
+<article class="post-card post-116 post type-post status-publish format-standard has-post-thumbnail hentry category-bonusy">
+	<a class="post-card__img" href="../nejlepsi-casino-bonusy-podle-redakce/index.html">
+		<img width="640" height="360" src="../wp-content/uploads/2026/10/post-5-640x360.png" class="attachment-csgame-card size-csgame-card wp-post-image" alt="" loading="lazy" decoding="async" />	</a>
+	<div class="post-card__body">
+		<h3 class="post-card__title"><a href="../nejlepsi-casino-bonusy-podle-redakce/index.html">Nejlepší casino bonusy podle redakce</a></h3>
+		<p class="post-card__meta muted">
+			<a href="../author/admin/index.html">Anežka Nováková</a>
+			·
+			<time datetime="2026-10-29T10:54:07+00:00">29. 10. 2026</time>
+		</p>
+		<p class="post-card__excerpt">Porovnali jsme protočení, platnost a maximální výhru u desítek bonusů. Tady jsou vítězové.</p>
+	</div>
+</article>
+<article class="post-card post-118 post type-post status-publish format-standard has-post-thumbnail hentry category-rady">
+	<a class="post-card__img" href="../zodpovedne-hrani-jak-si-nastavit-limity/index.html">
+		<img width="640" height="360" src="../wp-content/uploads/2026/10/post-6-640x360.png" class="attachment-csgame-card size-csgame-card wp-post-image" alt="" loading="lazy" decoding="async" />	</a>
+	<div class="post-card__body">
+		<h3 class="post-card__title"><a href="../zodpovedne-hrani-jak-si-nastavit-limity/index.html">Zodpovědné hraní: jak si nastavit limity</a></h3>
+		<p class="post-card__meta muted">
+			<a href="../author/admin/index.html">Anežka Nováková</a>
+			·
+			<time datetime="2026-10-28T10:54:07+00:00">28. 10. 2026</time>
+		</p>
+		<p class="post-card__excerpt">Krok za krokem ukazujeme, jak si v kasinu nastavit limit vkladu, ztráty i času hraní.</p>
 	</div>
 </article>
 		</div>
 			
 	<div class="container--narrow">
-					<div class="entry-content"><p>Online kasina v Česku prošla v posledních letech velkou proměnou. V této recenzi se podíváme na to, co nabízí a pro koho se hodí.</p>
-<h2 id="jak-vybirame-kasina">Jak vybíráme kasina</h2>
-<p>Hodnotíme licenci, bonusy, rychlost výběrů a nabídku her. <mark>Každé kasino testujeme s reálným vkladem.</mark></p>
-<h3 id="licence-a-bezpecnost">Licence a bezpečnost</h3>
-<p>Hrajte pouze u kasin s licencí MF ČR.</p>
-<ul>
-<li>Licence MF ČR</li>
-<li>Rychlé výběry</li>
-<li>Česká podpora</li>
-</ul>
-<h3 id="bonusy">Bonusy</h3>
-<ol>
-<li>Zaregistrujte se</li>
-<li>Ověřte účet</li>
-<li>Vložte peníze</li>
-</ol>
-<h2 id="srovnani">Srovnání</h2>
-<figure class="wp-block-table">
-<table>
-<thead>
-<tr>
-<th>Kasino</th>
-<th>Bonus</th>
-<th>Výběr</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Alfa</td>
-<td>300 Kč</td>
-<td>24 h</td>
-</tr>
-<tr>
-<td>Beta</td>
-<td>100 FS</td>
-<td>48 h</td>
-</tr>
-</tbody>
-</table>
-</figure>
-<h4>Tip redakce</h4>
-<p>Vždy si přečtěte obchodní podmínky.</p>
+					<div class="entry-content"><h2 id="novinky-ze-sveta-online-kasin">Novinky ze světa online kasin</h2>
+<p>Sledujeme nové licence, změny zákona, velké výhry a nejzajímavější bonusové akce. Články aktualizujeme každý týden.</p>
 </div>
 					<section class="subscribe" id="odber">
 		<div class="subscribe__icon"><svg class="ico" aria-hidden="true"><use href="#i-mail"></use></svg></div>
@@ -196,7 +209,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		<form class="subscribe__form" method="post" action="#" onsubmit="alert('Statické demo – formuláře nejsou aktivní.');return false;">
 			<input type="hidden" name="action" value="csgame_subscribe">
 			<input type="hidden" name="redirect" value="">
-			<input type="hidden" id="csgame_sub_nonce" name="csgame_sub_nonce" value="1a4d7539bf" /><input type="hidden" name="_wp_http_referer" value="/novinky/" />			<label class="screen-reader-text" for="sub-email">E-mail</label>
+			<input type="hidden" id="csgame_sub_nonce" name="csgame_sub_nonce" value="a017868bee" /><input type="hidden" name="_wp_http_referer" value="/novinky/" />			<label class="screen-reader-text" for="sub-email">E-mail</label>
 			<input id="sub-email" type="email" name="email" required placeholder="Váš e-mail">
 			<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 			<button class="btn btn--primary" type="submit">Odebírat</button>
@@ -213,18 +226,41 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	<div class="container">
 		<div class="site-footer__top">
 			<div class="site-footer__about">
-				<p class="site-footer__title">
-					<span class="logo-text__mark">CS</span>
-					CS Game				</p>
+				<a class="site-footer__logo" href="../index.html" aria-label="CS Game">
+					<svg class="site-logo__svg" width="177" height="40" viewBox="0 0 230 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CS Game">
+	<defs>
+		<linearGradient id="csg-foot" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#ffe08a"/><stop offset=".55" stop-color="#f5b82e"/><stop offset="1" stop-color="#c7860f"/>
+		</linearGradient>
+	</defs>
+	<g transform="translate(26 26)">
+		<circle r="24" fill="url(#csg-foot)"/>
+		<g fill="#0d0f15">
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(0)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(60)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(120)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(180)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(240)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(300)"/>
+					</g>
+		<circle r="15.5" fill="#0d0f15"/>
+		<circle r="15.5" fill="none" stroke="url(#csg-foot)" stroke-width="1.5" stroke-dasharray="2.2 2.6"/>
+		<text y="5.2" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="14.5" fill="url(#csg-foot)">CS</text>
+	</g>
+	<text x="60" y="35" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="27" fill="#fff" letter-spacing="-.6">CS<tspan fill="url(#csg-foot)" dx="6">Game</tspan></text>
+</svg>
+				</a>
 				<div class="site-footer__text">
 					<p>CS Game je nezávislý průvodce světem legálních online kasin v Česku. Recenze, bonusy a automaty hodnotíme podle jasných kritérií.</p>
 				</div>
 			</div>
 			<nav class="site-footer__links" aria-label="Odkazy v patičce">
-				<ul id="menu-paticka" class="footer-menu"><li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-46"><a href="index.html#">O nás</a></li>
-<li id="menu-item-47" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47"><a href="index.html#">Kontakt</a></li>
-<li id="menu-item-48" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-48"><a href="index.html#">Zodpovědné hraní</a></li>
-<li id="menu-item-49" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-49"><a href="index.html#">Ochrana osobních údajů</a></li>
+				<ul id="menu-paticka" class="footer-menu"><li id="menu-item-125" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-125"><a href="index.html#">O nás</a></li>
+<li id="menu-item-126" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-126"><a href="index.html#">Kontakt</a></li>
+<li id="menu-item-127" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-127"><a href="index.html#">Zodpovědné hraní</a></li>
+<li id="menu-item-128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-128"><a href="index.html#">Ochrana osobních údajů</a></li>
+<li id="menu-item-129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-129"><a href="index.html#">Jak hodnotíme kasina</a></li>
+<li id="menu-item-130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-130"><a href="index.html#">Reklama</a></li>
 </ul>			</nav>
 		</div>
 		<div class="site-footer__bottom">
@@ -263,14 +299,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/cs-game/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 <script id="csgame-main-js-extra">
-var CSGAME = {"ajaxUrl":"#","nonce":"8fc410edc4","i18n":{"copied":"Zkop\u00edrov\u00e1no!","thanks":"D\u011bkujeme za hodnocen\u00ed!","showMore":"Zobrazit v\u00edce","showLess":"Zobrazit m\u00e9n\u011b"}};
+var CSGAME = {"ajaxUrl":"#","nonce":"1c14438321","i18n":{"copied":"Zkop\u00edrov\u00e1no!","thanks":"D\u011bkujeme za hodnocen\u00ed!","showMore":"Zobrazit v\u00edce","showLess":"Zobrazit m\u00e9n\u011b"}};
 //# sourceURL=csgame-main-js-extra
 </script>
 <script id="csgame-main-js" src="../wp-content/themes/cs-game/assets/js/main.js"></script>
 <script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":""}}
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"http://localhost:8099/wp-includes/js/wp-emoji-release.min.js?ver=7.2-beta3-65184"}}
 </script>
 <script type="module">
 /*! This file is auto-generated */
 var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const o=JSON.parse(t.text),s=(window._wpemojiSettings=o,"wpEmojiSettingsSupports"),i=["flag","emoji"];function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function f(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\udec8")}}function l(e,t,n,r){let a;if(!(a=("undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0})))throw new Error("Unable to obtain a 2D context for the emoji support tests.");a.textBaseline="top",a.font="600 32px Arial";const o={};return e.forEach(e=>{o[e]=t(a,e,n,r)}),o}function g(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}o.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{var e=function(){try{var e=sessionStorage.getItem(s);if(null===e)return null;var t=JSON.parse(e);if("object"==typeof t&&"number"==typeof t.timestamp&&(new Date).valueOf()<t.timestamp+604800&&"object"==typeof t.supportTests)return t.supportTests}catch(e){}return null}();if(e)t(e);else{if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&"function"==typeof URL.createObjectURL&&"undefined"!=typeof Blob)try{var n="postMessage("+l.toString()+"("+[JSON.stringify(i),u.toString(),p.toString(),f.toString()].join(",")+"));",r=new Blob([n],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{c(e.data),a.terminate(),t(e.data)})}catch(e){}e=l(i,u,p,f);c(e),t(e)}}).then(e=>{for(const a in e){var t=a,n=e[t];o.supports[t]=n,o.supports.everything=o.supports.everything&&n,"flag"!==t&&(o.supports.everythingExceptFlag=o.supports.everythingExceptFlag&&n)}var r;o.supports.everythingExceptFlag=o.supports.everythingExceptFlag&&!o.supports.flag,o.supports.everything||((r=o.source||{}).concatemoji?g(r.concatemoji):r.wpemoji&&r.twemoji&&(g(r.twemoji),g(r.wpemoji)))});
-//# sourceURL=
+//# sourceURL=http://localhost:8099/wp-includes/js/wp-emoji-loader.min.js
+</script>
+</body>
+</html>

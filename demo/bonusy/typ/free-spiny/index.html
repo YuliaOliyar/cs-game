@@ -8,6 +8,7 @@
 <meta name='robots' content='max-image-preview:large' />
 <link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
 <link href='https://fonts.gstatic.com' crossorigin rel='preconnect' />
+<link rel="icon" type="image/svg+xml" href="../../../wp-content/themes/cs-game/assets/img/favicon.svg">
 <style id="wp-img-auto-sizes-contain-inline-css">
 img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 /*# sourceURL=wp-img-auto-sizes-contain-inline-css */
@@ -54,8 +55,29 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 <header class="site-header">
 	<div class="container site-header__inner">
 		<div class="site-logo">
-							<a class="logo-text" href="../../../index.html" rel="home">
-					<span class="logo-text__mark">CS</span><span class="logo-text__word">Game</span>
+							<a class="logo-link" href="../../../index.html" rel="home">
+					<svg class="site-logo__svg" width="195" height="44" viewBox="0 0 230 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CS Game">
+	<defs>
+		<linearGradient id="csg-head" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#ffe08a"/><stop offset=".55" stop-color="#f5b82e"/><stop offset="1" stop-color="#c7860f"/>
+		</linearGradient>
+	</defs>
+	<g transform="translate(26 26)">
+		<circle r="24" fill="url(#csg-head)"/>
+		<g fill="#0d0f15">
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(0)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(60)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(120)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(180)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(240)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(300)"/>
+					</g>
+		<circle r="15.5" fill="#0d0f15"/>
+		<circle r="15.5" fill="none" stroke="url(#csg-head)" stroke-width="1.5" stroke-dasharray="2.2 2.6"/>
+		<text y="5.2" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="14.5" fill="url(#csg-head)">CS</text>
+	</g>
+	<text x="60" y="35" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="27" fill="#fff" letter-spacing="-.6">CS<tspan fill="url(#csg-head)" dx="6">Game</tspan></text>
+</svg>
 				</a>
 					</div>
 
@@ -64,11 +86,11 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		</button>
 
 		<nav id="primary-nav" class="primary-nav" aria-label="Hlavní menu">
-			<ul id="menu-hlavni-menu" class="menu"><li id="menu-item-41" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-41"><a href="../../../index.html">Kasina</a></li>
-<li id="menu-item-42" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-42"><a href="../../../casino-bonusy/index.html">Bonusy</a></li>
-<li id="menu-item-43" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-43"><a href="../../../casino/automaty/index.html">Automaty</a></li>
-<li id="menu-item-44" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44"><a href="../../../recenze.html">Recenze</a></li>
-<li id="menu-item-45" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-45"><a href="../../../novinky/index.html">Novinky</a></li>
+			<ul id="menu-hlavni-menu" class="menu"><li id="menu-item-120" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-home menu-item-120"><a href="../../../index.html">Kasina</a></li>
+<li id="menu-item-121" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-121"><a href="../../../casino-bonusy/index.html">Bonusy</a></li>
+<li id="menu-item-122" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-122"><a href="../../../casino/automaty/index.html">Automaty</a></li>
+<li id="menu-item-123" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-123"><a href="../../../recenze/index.html">Recenze</a></li>
+<li id="menu-item-124" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-124"><a href="../../../novinky/index.html">Novinky</a></li>
 </ul>		</nav>
 	</div>
 </header>
@@ -85,17 +107,21 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	<nav class="interlinks interlinks--horizontal" aria-label="Typy bonusů">
 			<span class="interlinks__current">Free spiny</span>
 		<ul>
-								<li class="is-active">
-				<a href="index.html" aria-current="page">
-					Free spiny									</a>
-			</li>
 								<li>
 				<a href="../bonus-bez-vkladu/index.html">
 					Bez vkladu									</a>
 			</li>
-								<li>
+											<li>
 				<a href="../promo-kody/index.html">
 					Promo kódy									</a>
+			</li>
+								<li>
+				<a href="../bonus-za-vklad/index.html">
+					Za vklad									</a>
+			</li>
+								<li>
+				<a href="../vitaci-bonus/index.html">
+					Vítací bonusy									</a>
 			</li>
 			</ul>
 </nav>
@@ -103,16 +129,246 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	
 	
 	<ol class="bonus-list">
-		<li class="bonus-card bonus-card--top bonus-card--excl" data-types="free-spiny">
+		<li class="bonus-card bonus-card--top" data-types="free-spiny">
 			<span class="bonus-card__pos">1</span>
 	
 	<div class="bonus-card__main">
 		<div class="bonus-card__logo">
-			<span class="logo-box logo-box--fallback">ZL</span>							<span class="stars" role="img" aria-label="Hodnocení 4.9 z 5"><span class="stars__bg">★★★★★</span><span class="stars__fg" style="width:98%">★★★★★</span></span><span class="stars__num">4.9</span>					</div>
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-1-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Fruit Blaze" loading="lazy" decoding="async" /></span>					</div>
 
 		<div class="bonus-card__info">
 			<div class="bonus-card__labels">
 									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/fruit-blaze/index.html">Fruit Blaze</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/fruit-blaze/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">2</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-4-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Wild Rapids" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/wild-rapids/index.html">Wild Rapids</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/wild-rapids/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">3</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-7-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Golden Dragon" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/golden-dragon/index.html">Golden Dragon</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/golden-dragon/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">4</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-10-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Crown Jewels" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/crown-jewels/index.html">Crown Jewels</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/crown-jewels/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">5</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-13-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Neon Nights" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/neon-nights/index.html">Neon Nights</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/neon-nights/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">6</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-16-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Fire Joker CZ" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/fire-joker-cz/index.html">Fire Joker CZ</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/fire-joker-cz/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">7</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-19-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Space Ace" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/space-ace/index.html">Space Ace</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/space-ace/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">8</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-22-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Sphinx Riches" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/sphinx-riches/index.html">Sphinx Riches</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/sphinx-riches/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">9</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-25-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Retro Reels" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/retro-reels/index.html">Retro Reels</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/retro-reels/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card" data-types="free-spiny">
+			<span class="bonus-card__pos">10</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="360" height="270" src="../../../wp-content/uploads/2026/11/slot-28-360x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Cash Tower" loading="lazy" decoding="async" /></span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../casino/automat/cash-tower/index.html">Cash Tower</a>
+			</h3>
+								</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="index.html#" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../casino/automat/cash-tower/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+	</li>
+<li class="bonus-card bonus-card--excl" data-types="free-spiny promo-kody">
+			<span class="bonus-card__pos">11</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="480" height="270" src="../../../wp-content/uploads/2026/11/casino-zlata-sedmicka-480x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Zlatá Sedmička" loading="lazy" decoding="async" /></span>							<span class="stars" role="img" aria-label="Hodnocení 4.9 z 5"><span class="stars__bg">★★★★★</span><span class="stars__fg" style="width:98%">★★★★★</span></span><span class="stars__num">4.9</span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny, Promo kódy</span>
 													<span class="label label--gold">Exkluzivní</span>
 							</div>
 			<h3 class="bonus-card__title">
@@ -126,6 +382,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 					</div>
 
 		<div class="bonus-card__actions">
+							<button class="promo" type="button" data-copy="CSGAME1">
+					<span class="promo__code">CSGAME1</span>
+					<svg class="ico" aria-hidden="true"><use href="#i-copy"></use></svg>				</button>
 						<a class="btn btn--primary btn--block" href="https://example.com/go/zlata-sedmicka" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
 			<a class="btn btn--ghost btn--block" href="../../../bonus/50-free-spinu-zlata-sedmicka/index.html">Detail bonusu</a>
 		</div>
@@ -133,43 +392,109 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 			<details class="bonus-card__details">
 			<summary>Jak bonus získat <svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
-			<div class="bonus-card__details-body"><p>Bonus je určen novým hráčům starším 18 let. Free spiny platí na vybrané automaty.</p>
+			<div class="bonus-card__details-body"><p>Bonus je určen novým hráčům starším 18 let. Po ověření účtu se připíše automaticky. Free spiny platí na vybrané automaty, výhry je nutné protočit 35× do 7 dní. Maximální sázka během protočení je 100 Kč.</p>
 </div>
 		</details>
 	</li>
 <li class="bonus-card" data-types="free-spiny">
-			<span class="bonus-card__pos">2</span>
+			<span class="bonus-card__pos">12</span>
 	
 	<div class="bonus-card__main">
 		<div class="bonus-card__logo">
-			<span class="logo-box logo-box--fallback">RO</span>							<span class="stars" role="img" aria-label="Hodnocení 4.6 z 5"><span class="stars__bg">★★★★★</span><span class="stars__fg" style="width:92%">★★★★★</span></span><span class="stars__num">4.6</span>					</div>
+			<span class="logo-box"><img width="480" height="270" src="../../../wp-content/uploads/2026/11/casino-royal-bohemia-480x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Royal Bohemia" loading="lazy" decoding="async" /></span>							<span class="stars" role="img" aria-label="Hodnocení 4.7 z 5"><span class="stars__bg">★★★★★</span><span class="stars__fg" style="width:94%">★★★★★</span></span><span class="stars__num">4.7</span>					</div>
 
 		<div class="bonus-card__info">
 			<div class="bonus-card__labels">
 									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny</span>
 											</div>
 			<h3 class="bonus-card__title">
-				<a href="../../../bonus/400-kc-bez-vkladu-royal-bohemia/index.html">400 Kč bez vkladu</a>
+				<a href="../../../bonus/60-free-spinu-royal-bohemia/index.html">60 free spinů</a>
 			</h3>
 							<p class="bonus-card__casino muted">Royal Bohemia</p>
 										<p class="hashtags">
-											<a href="../../tag/bezvkladu/index.html">#bezvkladu</a>
+											<a href="../../tag/freespiny/index.html">#freespiny</a>
 											<a href="../../tag/novinka/index.html">#novinka</a>
 									</p>
 					</div>
 
 		<div class="bonus-card__actions">
-							<button class="promo" type="button" data-copy="CSGAME2">
-					<span class="promo__code">CSGAME2</span>
-					<svg class="ico" aria-hidden="true"><use href="#i-copy"></use></svg>				</button>
 						<a class="btn btn--primary btn--block" href="https://example.com/go/royal-bohemia" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
-			<a class="btn btn--ghost btn--block" href="../../../bonus/400-kc-bez-vkladu-royal-bohemia/index.html">Detail bonusu</a>
+			<a class="btn btn--ghost btn--block" href="../../../bonus/60-free-spinu-royal-bohemia/index.html">Detail bonusu</a>
 		</div>
 	</div>
 
 			<details class="bonus-card__details">
 			<summary>Jak bonus získat <svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
-			<div class="bonus-card__details-body"><p>Bonus je určen novým hráčům starším 18 let. Free spiny platí na vybrané automaty.</p>
+			<div class="bonus-card__details-body"><p>Bonus je určen novým hráčům starším 18 let. Po ověření účtu se připíše automaticky. Free spiny platí na vybrané automaty, výhry je nutné protočit 35× do 7 dní. Maximální sázka během protočení je 100 Kč.</p>
+</div>
+		</details>
+	</li>
+<li class="bonus-card" data-types="free-spiny promo-kody">
+			<span class="bonus-card__pos">13</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="480" height="270" src="../../../wp-content/uploads/2026/11/casino-lucky-praha-480x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Lucky Praha" loading="lazy" decoding="async" /></span>							<span class="stars" role="img" aria-label="Hodnocení 4.5 z 5"><span class="stars__bg">★★★★★</span><span class="stars__fg" style="width:90%">★★★★★</span></span><span class="stars__num">4.5</span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny, Promo kódy</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../bonus/70-free-spinu-lucky-praha/index.html">70 free spinů</a>
+			</h3>
+							<p class="bonus-card__casino muted">Lucky Praha</p>
+										<p class="hashtags">
+											<a href="../../tag/freespiny/index.html">#freespiny</a>
+											<a href="../../tag/novinka/index.html">#novinka</a>
+									</p>
+					</div>
+
+		<div class="bonus-card__actions">
+							<button class="promo" type="button" data-copy="CSGAME3">
+					<span class="promo__code">CSGAME3</span>
+					<svg class="ico" aria-hidden="true"><use href="#i-copy"></use></svg>				</button>
+						<a class="btn btn--primary btn--block" href="https://example.com/go/lucky-praha" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../bonus/70-free-spinu-lucky-praha/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+			<details class="bonus-card__details">
+			<summary>Jak bonus získat <svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+			<div class="bonus-card__details-body"><p>Bonus je určen novým hráčům starším 18 let. Po ověření účtu se připíše automaticky. Free spiny platí na vybrané automaty, výhry je nutné protočit 35× do 7 dní. Maximální sázka během protočení je 100 Kč.</p>
+</div>
+		</details>
+	</li>
+<li class="bonus-card" data-types="free-spiny vitaci-bonus">
+			<span class="bonus-card__pos">14</span>
+	
+	<div class="bonus-card__main">
+		<div class="bonus-card__logo">
+			<span class="logo-box"><img width="480" height="270" src="../../../wp-content/uploads/2026/11/casino-vltava-casino-480x270.png" class="attachment-csgame-logo size-csgame-logo wp-post-image" alt="Vltava Casino" loading="lazy" decoding="async" /></span>							<span class="stars" role="img" aria-label="Hodnocení 4.2 z 5"><span class="stars__bg">★★★★★</span><span class="stars__fg" style="width:84%">★★★★★</span></span><span class="stars__num">4.2</span>					</div>
+
+		<div class="bonus-card__info">
+			<div class="bonus-card__labels">
+									<span class="label"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg>Free spiny, Vítací bonusy</span>
+											</div>
+			<h3 class="bonus-card__title">
+				<a href="../../../bonus/100-free-spinu-vltava-casino/index.html">100 free spinů</a>
+			</h3>
+							<p class="bonus-card__casino muted">Vltava Casino</p>
+										<p class="hashtags">
+											<a href="../../tag/freespiny/index.html">#freespiny</a>
+											<a href="../../tag/novinka/index.html">#novinka</a>
+									</p>
+					</div>
+
+		<div class="bonus-card__actions">
+						<a class="btn btn--primary btn--block" href="https://example.com/go/vltava-casino" target="_blank" rel="nofollow sponsored noopener">Získat bonus</a>
+			<a class="btn btn--ghost btn--block" href="../../../bonus/100-free-spinu-vltava-casino/index.html">Detail bonusu</a>
+		</div>
+	</div>
+
+			<details class="bonus-card__details">
+			<summary>Jak bonus získat <svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg></summary>
+			<div class="bonus-card__details-body"><p>Bonus je určen novým hráčům starším 18 let. Po ověření účtu se připíše automaticky. Free spiny platí na vybrané automaty, výhry je nutné protočit 35× do 7 dní. Maximální sázka během protočení je 100 Kč.</p>
 </div>
 		</details>
 	</li>
@@ -187,18 +512,41 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	<div class="container">
 		<div class="site-footer__top">
 			<div class="site-footer__about">
-				<p class="site-footer__title">
-					<span class="logo-text__mark">CS</span>
-					CS Game				</p>
+				<a class="site-footer__logo" href="../../../index.html" aria-label="CS Game">
+					<svg class="site-logo__svg" width="177" height="40" viewBox="0 0 230 52" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CS Game">
+	<defs>
+		<linearGradient id="csg-foot" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0" stop-color="#ffe08a"/><stop offset=".55" stop-color="#f5b82e"/><stop offset="1" stop-color="#c7860f"/>
+		</linearGradient>
+	</defs>
+	<g transform="translate(26 26)">
+		<circle r="24" fill="url(#csg-foot)"/>
+		<g fill="#0d0f15">
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(0)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(60)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(120)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(180)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(240)"/>
+							<rect x="-3.5" y="-24" width="7" height="7" rx="1.5" transform="rotate(300)"/>
+					</g>
+		<circle r="15.5" fill="#0d0f15"/>
+		<circle r="15.5" fill="none" stroke="url(#csg-foot)" stroke-width="1.5" stroke-dasharray="2.2 2.6"/>
+		<text y="5.2" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="14.5" fill="url(#csg-foot)">CS</text>
+	</g>
+	<text x="60" y="35" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="27" fill="#fff" letter-spacing="-.6">CS<tspan fill="url(#csg-foot)" dx="6">Game</tspan></text>
+</svg>
+				</a>
 				<div class="site-footer__text">
 					<p>CS Game je nezávislý průvodce světem legálních online kasin v Česku. Recenze, bonusy a automaty hodnotíme podle jasných kritérií.</p>
 				</div>
 			</div>
 			<nav class="site-footer__links" aria-label="Odkazy v patičce">
-				<ul id="menu-paticka" class="footer-menu"><li id="menu-item-46" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-46"><a href="index.html#">O nás</a></li>
-<li id="menu-item-47" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-47"><a href="index.html#">Kontakt</a></li>
-<li id="menu-item-48" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-48"><a href="index.html#">Zodpovědné hraní</a></li>
-<li id="menu-item-49" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-49"><a href="index.html#">Ochrana osobních údajů</a></li>
+				<ul id="menu-paticka" class="footer-menu"><li id="menu-item-125" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-125"><a href="index.html#">O nás</a></li>
+<li id="menu-item-126" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-126"><a href="index.html#">Kontakt</a></li>
+<li id="menu-item-127" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-127"><a href="index.html#">Zodpovědné hraní</a></li>
+<li id="menu-item-128" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-128"><a href="index.html#">Ochrana osobních údajů</a></li>
+<li id="menu-item-129" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-129"><a href="index.html#">Jak hodnotíme kasina</a></li>
+<li id="menu-item-130" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-130"><a href="index.html#">Reklama</a></li>
 </ul>			</nav>
 		</div>
 		<div class="site-footer__bottom">
@@ -237,14 +585,17 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/cs-game/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 <script id="csgame-main-js-extra">
-var CSGAME = {"ajaxUrl":"#","nonce":"8fc410edc4","i18n":{"copied":"Zkop\u00edrov\u00e1no!","thanks":"D\u011bkujeme za hodnocen\u00ed!","showMore":"Zobrazit v\u00edce","showLess":"Zobrazit m\u00e9n\u011b"}};
+var CSGAME = {"ajaxUrl":"#","nonce":"1c14438321","i18n":{"copied":"Zkop\u00edrov\u00e1no!","thanks":"D\u011bkujeme za hodnocen\u00ed!","showMore":"Zobrazit v\u00edce","showLess":"Zobrazit m\u00e9n\u011b"}};
 //# sourceURL=csgame-main-js-extra
 </script>
 <script id="csgame-main-js" src="../../../wp-content/themes/cs-game/assets/js/main.js"></script>
 <script id="wp-emoji-settings" type="application/json">
-{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":""}}
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"http://localhost:8099/wp-includes/js/wp-emoji-release.min.js?ver=7.2-beta3-65184"}}
 </script>
 <script type="module">
 /*! This file is auto-generated */
 var e="script#wp-emoji-settings",t=document.querySelector(e);if(!(t instanceof HTMLScriptElement))throw new Error("Element missing: "+e);const o=JSON.parse(t.text),s=(window._wpemojiSettings=o,"wpEmojiSettingsSupports"),i=["flag","emoji"];function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(s,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const r=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===r[t])}function f(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,r){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!r(e,"\ud83e\udec8")}}function l(e,t,n,r){let a;if(!(a=("undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0})))throw new Error("Unable to obtain a 2D context for the emoji support tests.");a.textBaseline="top",a.font="600 32px Arial";const o={};return e.forEach(e=>{o[e]=t(a,e,n,r)}),o}function g(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}o.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{var e=function(){try{var e=sessionStorage.getItem(s);if(null===e)return null;var t=JSON.parse(e);if("object"==typeof t&&"number"==typeof t.timestamp&&(new Date).valueOf()<t.timestamp+604800&&"object"==typeof t.supportTests)return t.supportTests}catch(e){}return null}();if(e)t(e);else{if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&"function"==typeof URL.createObjectURL&&"undefined"!=typeof Blob)try{var n="postMessage("+l.toString()+"("+[JSON.stringify(i),u.toString(),p.toString(),f.toString()].join(",")+"));",r=new Blob([n],{type:"text/javascript"});const a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=e=>{c(e.data),a.terminate(),t(e.data)})}catch(e){}e=l(i,u,p,f);c(e),t(e)}}).then(e=>{for(const a in e){var t=a,n=e[t];o.supports[t]=n,o.supports.everything=o.supports.everything&&n,"flag"!==t&&(o.supports.everythingExceptFlag=o.supports.everythingExceptFlag&&n)}var r;o.supports.everythingExceptFlag=o.supports.everythingExceptFlag&&!o.supports.flag,o.supports.everything||((r=o.source||{}).concatemoji?g(r.concatemoji):r.wpemoji&&r.twemoji&&(g(r.twemoji),g(r.wpemoji)))});
-//# sourceURL=
+//# sourceURL=http://localhost:8099/wp-includes/js/wp-emoji-loader.min.js
+</script>
+</body>
+</html>
