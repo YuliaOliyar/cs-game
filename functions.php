@@ -90,6 +90,11 @@ function csgame_assets() {
 				'showMore' => __( 'Zobrazit více', 'csgame' ),
 				'showLess' => __( 'Zobrazit méně', 'csgame' ),
 			),
+			'popup'   => array(
+				'delay' => (int) csgame_mod( 'csgame_pop_delay' ),
+				'days'  => max( 0, (int) csgame_mod( 'csgame_pop_days' ) ),
+				'exit'  => (bool) csgame_mod( 'csgame_pop_exit' ),
+			),
 		)
 	);
 

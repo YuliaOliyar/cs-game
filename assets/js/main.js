@@ -207,3 +207,69 @@
 		} );
 	} );
 } )();
+
+/* Newsletter popup */
+( function () {
+	'use strict';
+	var pop = document.getElementById( 'nl-pop' );
+	if ( ! pop ) { return; }
+	var cfg = ( window.CSGAME && window.CSGAME.popup ) || { delay: 15, days: 7, exit: true };
+	var KEY = 'csgame_nl_seen';
+	var lastFocus = null;
+	var opened = false;
+
+	var store = {
+		get: function () { try { return parseInt( window.localStorage.getItem( KEY ) || '0', 10 ); } catch ( e ) { return 0; } },
+		set: function () { try { window.localStorage.setItem( KEY, String( Date.now() ) ); } catch ( e ) {} }
+	};
+	var params = new URLSearchParams( window.location.search );
+	var forced = params.get( 'newsletter' ) === '1' || ( !! pop.getAttribute( 'data-state' ) && location.hash !== '#odber' );
+	var recently = store.get() && ( Date.now() - store.get() ) < cfg.days * 864e5;
+
+	function focusables() {
+		return Array.prototype.slice.call( pop.querySelectorAll( 'button, input:not([type="hidden"]):not(.hp), a[href]' ) ).filter( function ( el ) { return el.offsetParent !== null; } );
+	}
+	function open() {
+		if ( opened ) { return; }
+		opened = true;
+		lastFocus = document.activeElement;
+		pop.hidden = false;
+		document.documentElement.classList.add( 'nl-lock' );
+		store.set();
+		var email = pop.querySelector( 'input[type="email"]' );
+		setTimeout( function () { ( email || pop.querySelector( '.nl-pop__close' ) ).focus(); }, 50 );
+	}
+	function close() {
+		pop.hidden = true;
+		document.documentElement.classList.remove( 'nl-lock' );
+		if ( lastFocus && lastFocus.focus ) { lastFocus.focus(); }
+		if ( params.has( 'newsletter' ) && window.history.replaceState ) {
+			params.delete( 'newsletter' );
+			var q = params.toString();
+			history.replaceState( null, '', location.pathname + ( q ? '?' + q : '' ) + location.hash );
+		}
+	}
+
+	pop.addEventListener( 'click', function ( e ) {
+		if ( e.target.closest( '[data-nl-close]' ) ) { close(); }
+	} );
+	document.addEventListener( 'keydown', function ( e ) {
+		if ( pop.hidden ) { return; }
+		if ( 'Escape' === e.key ) { close(); }
+		if ( 'Tab' === e.key ) {
+			var f = focusables();
+			if ( ! f.length ) { return; }
+			if ( e.shiftKey && document.activeElement === f[0] ) { e.preventDefault(); f[ f.length - 1 ].focus(); }
+			else if ( ! e.shiftKey && document.activeElement === f[ f.length - 1 ] ) { e.preventDefault(); f[0].focus(); }
+		}
+	} );
+
+	if ( forced ) { open(); return; }
+	if ( recently ) { return; }
+	if ( cfg.delay > 0 ) { setTimeout( open, cfg.delay * 1000 ); }
+	if ( cfg.exit && window.matchMedia( '(hover: hover) and (pointer: fine)' ).matches ) {
+		document.addEventListener( 'mouseout', function ( e ) {
+			if ( ! e.relatedTarget && e.clientY <= 0 ) { open(); }
+		} );
+	}
+} )();

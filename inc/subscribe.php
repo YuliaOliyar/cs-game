@@ -31,6 +31,17 @@ add_action(
 	}
 );
 
+/**
+ * Current URL for redirect after subscribing.
+ */
+function csgame_current_url() {
+	if ( is_singular() ) {
+		return get_permalink();
+	}
+	$req = isset( $_SERVER['REQUEST_URI'] ) ? esc_url_raw( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '/';
+	return home_url( strtok( $req, '?' ) );
+}
+
 function csgame_subscribe_form( $title = '', $text = '' ) {
 	$title = $title ? $title : get_theme_mod( 'csgame_sub_title', __( 'Nenechte si ujít nejlepší bonusy', 'csgame' ) );
 	$text  = $text ? $text : get_theme_mod( 'csgame_sub_text', __( 'Exkluzivní promo kódy a novinky ze světa online kasin jednou týdně do vašeho e-mailu.', 'csgame' ) );
@@ -46,7 +57,7 @@ function csgame_subscribe_form( $title = '', $text = '' ) {
 		</div>
 		<form class="subscribe__form" method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 			<input type="hidden" name="action" value="csgame_subscribe">
-			<input type="hidden" name="redirect" value="<?php echo esc_url( get_permalink() ? get_permalink() : home_url( '/' ) ); ?>">
+			<input type="hidden" name="redirect" value="<?php echo esc_url( csgame_current_url() ); ?>">
 			<?php wp_nonce_field( 'csgame_subscribe', 'csgame_sub_nonce' ); ?>
 			<label class="screen-reader-text" for="sub-email"><?php esc_html_e( 'E-mail', 'csgame' ); ?></label>
 			<input id="sub-email" type="email" name="email" required placeholder="<?php esc_attr_e( 'Váš e-mail', 'csgame' ); ?>">
@@ -91,8 +102,20 @@ function csgame_handle_subscribe() {
 		);
 		do_action( 'csgame_new_subscriber', $email );
 	}
-	wp_safe_redirect( add_query_arg( 'sub', 'ok', $redirect ) . '#odber' );
+	$anchor = ! empty( $_POST['src'] ) && 'popup' === $_POST['src'] ? '' : '#odber'; // phpcs:ignore
+	wp_safe_redirect( add_query_arg( 'sub', 'ok', $redirect ) . $anchor );
 	exit;
 }
 add_action( 'admin_post_csgame_subscribe', 'csgame_handle_subscribe' );
 add_action( 'admin_post_nopriv_csgame_subscribe', 'csgame_handle_subscribe' );
+
+/**
+ * Newsletter popup.
+ */
+function csgame_newsletter_popup() {
+	if ( is_admin() || ! get_theme_mod( 'csgame_pop_on', '1' ) ) {
+		return;
+	}
+	get_template_part( 'template-parts/newsletter-popup' );
+}
+add_action( 'wp_footer', 'csgame_newsletter_popup', 5 );

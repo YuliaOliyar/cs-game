@@ -15,6 +15,13 @@ function csgame_defaults() {
 		'csgame_disclaimer'     => 'Hazardní hry jsou určeny pouze osobám starším 18 let. Hraní může vést ke vzniku závislosti – hrajte zodpovědně a jen u kasin s licencí Ministerstva financí ČR. Pokud máte s hraním problém, vyhledejte odbornou pomoc.',
 		'csgame_sub_title'      => 'Nenechte si ujít nejlepší bonusy',
 		'csgame_sub_text'       => 'Exkluzivní promo kódy a novinky ze světa online kasin jednou týdně do vašeho e-mailu.',
+		'csgame_pop_on'         => '1',
+		'csgame_pop_title'      => 'Odebírejte novinky a exkluzivní bonusy',
+		'csgame_pop_items'      => "Nové bonusy bez vkladu jako první\nExkluzivní promo kódy jen pro odběratele\nTurnaje a slosování o ceny\nUpozornění na velké jackpoty",
+		'csgame_pop_note'       => 'Žádný spam – maximálně jeden e‑mail týdně.',
+		'csgame_pop_delay'      => '15',
+		'csgame_pop_days'       => '7',
+		'csgame_pop_exit'       => '1',
 		'csgame_bonus_title'    => 'Casino bonusy',
 		'csgame_bonus_intro'    => '',
 		'csgame_slots_title'    => 'Herní automaty',
@@ -48,6 +55,13 @@ function csgame_customize( $wp_customize ) {
 			'fields' => array(
 				'csgame_sub_title' => array( 'text', __( 'Nadpis', 'csgame' ) ),
 				'csgame_sub_text'  => array( 'textarea', __( 'Text', 'csgame' ) ),
+				'csgame_pop_on'    => array( 'checkbox', __( 'Vyskakovací okno: zapnuto', 'csgame' ) ),
+				'csgame_pop_title' => array( 'text', __( 'Vyskakovací okno: nadpis', 'csgame' ) ),
+				'csgame_pop_items' => array( 'textarea', __( 'Vyskakovací okno: výhody (řádek = položka)', 'csgame' ) ),
+				'csgame_pop_note'  => array( 'text', __( 'Vyskakovací okno: text nad formulářem', 'csgame' ) ),
+				'csgame_pop_delay' => array( 'number', __( 'Zobrazit po (sekund, 0 = jen při odchodu)', 'csgame' ) ),
+				'csgame_pop_exit'  => array( 'checkbox', __( 'Zobrazit i při pokusu o odchod (desktop)', 'csgame' ) ),
+				'csgame_pop_days'  => array( 'number', __( 'Znovu zobrazit nejdříve po (dnech)', 'csgame' ) ),
 			),
 		),
 		'csgame_archives' => array(
@@ -71,7 +85,7 @@ function csgame_customize( $wp_customize ) {
 				$key,
 				array(
 					'default'           => isset( $d[ $key ] ) ? $d[ $key ] : '',
-					'sanitize_callback' => 'textarea' === $f[0] ? 'wp_kses_post' : 'sanitize_text_field',
+					'sanitize_callback' => 'textarea' === $f[0] ? 'wp_kses_post' : ( 'checkbox' === $f[0] ? 'csgame_sanitize_check' : ( 'number' === $f[0] ? 'absint' : 'sanitize_text_field' ) ),
 				)
 			);
 			$wp_customize->add_control( $key, array( 'label' => $f[1], 'section' => $sid, 'type' => $f[0] ) );
@@ -79,3 +93,7 @@ function csgame_customize( $wp_customize ) {
 	}
 }
 add_action( 'customize_register', 'csgame_customize' );
+
+function csgame_sanitize_check( $v ) {
+	return $v ? '1' : '';
+}
