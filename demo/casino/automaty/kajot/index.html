@@ -565,11 +565,85 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		<symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" d="M4 3a2 2 0 1 1 0 4 2 2 0 0 1 0-4zM2 9h4v12H2zm7 0h4v1.7c.6-1 1.9-2 4-2 4 0 5 2.4 5 6V21h-4v-5.5c0-1.5-.3-3-2-3s-3 1.2-3 3V21H9z"/></symbol>
 		<symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/></symbol>
 	</svg>
-	<script type="speculationrules">
+	<div class="nl-pop" id="nl-pop" role="dialog" aria-modal="true" aria-labelledby="nl-pop-title" hidden>
+	<div class="nl-pop__backdrop" data-nl-close></div>
+	<div class="nl-pop__box" role="document">
+		<button class="nl-pop__close" type="button" data-nl-close aria-label="Zavřít"><svg class="ico" aria-hidden="true"><use href="#i-x"></use></svg></button>
+
+		<div class="nl-pop__content">
+			<p class="nl-pop__kicker"><svg class="ico" aria-hidden="true"><use href="#i-mail"></use></svg> Newsletter CS Game</p>
+			<h2 class="nl-pop__title" id="nl-pop-title">Odebírejte novinky a exkluzivní bonusy</h2>
+
+							<ul class="nl-pop__list">
+											<li><span class="nl-pop__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>Nové bonusy bez vkladu jako první</li>
+											<li><span class="nl-pop__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>Exkluzivní promo kódy jen pro odběratele</li>
+											<li><span class="nl-pop__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>Turnaje a slosování o ceny</li>
+											<li><span class="nl-pop__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>Upozornění na velké jackpoty</li>
+									</ul>
+			
+							<p class="nl-pop__note">Žádný spam – maximálně jeden e‑mail týdně.</p>
+				<form class="nl-pop__form" method="post" action="#" onsubmit="alert('Statické demo – formuláře nejsou aktivní.');return false;">
+					<input type="hidden" name="action" value="csgame_subscribe">
+					<input type="hidden" name="src" value="popup">
+					<input type="hidden" name="redirect" value="">
+					<input type="hidden" id="csgame_sub_nonce" name="csgame_sub_nonce" value="b8ea7fde70" /><input type="hidden" name="_wp_http_referer" value="/casino/automaty/kajot/" />					<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+					<div class="nl-pop__row">
+						<label class="screen-reader-text" for="nl-pop-email">E-mail</label>
+						<input id="nl-pop-email" type="email" name="email" required placeholder="Zadejte svůj e-mail" autocomplete="email">
+						<button class="btn btn--primary" type="submit">Začít odebírat</button>
+					</div>
+					<label class="nl-pop__consent">
+						<input type="checkbox" name="consent" value="1" required>
+						<span>Je mi 18+ a souhlasím s obchodními podmínkami a zpracováním osobních údajů pro zasílání novinek.</span>
+					</label>
+									</form>
+					</div>
+
+		<div class="nl-pop__art" aria-hidden="true">
+			<svg viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg">
+				<defs>
+					<linearGradient id="nlg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe08a"/><stop offset=".6" stop-color="#f5b82e"/><stop offset="1" stop-color="#c7860f"/></linearGradient>
+					<radialGradient id="nlglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#f5b82e" stop-opacity=".45"/><stop offset="1" stop-color="#f5b82e" stop-opacity="0"/></radialGradient>
+				</defs>
+				<circle cx="130" cy="125" r="115" fill="url(#nlglow)"/>
+				<!-- machine -->
+				<rect x="55" y="62" width="150" height="150" rx="22" fill="#1e2330" stroke="url(#nlg)" stroke-width="5"/>
+				<rect x="72" y="40" width="116" height="34" rx="12" fill="url(#nlg)"/>
+				<text x="130" y="65" text-anchor="middle" font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="22" fill="#1a1405" letter-spacing="2">WIN</text>
+				<rect x="70" y="92" width="120" height="66" rx="10" fill="#0d0f15"/>
+				<g font-family="Manrope,Arial,sans-serif" font-weight="800" font-size="34" text-anchor="middle" fill="url(#nlg)">
+					<rect x="76" y="98" width="34" height="54" rx="6" fill="#171b25"/><text x="93" y="138">7</text>
+					<rect x="113" y="98" width="34" height="54" rx="6" fill="#171b25"/><text x="130" y="138">7</text>
+					<rect x="150" y="98" width="34" height="54" rx="6" fill="#171b25"/><text x="167" y="138">7</text>
+				</g>
+				<rect x="78" y="170" width="104" height="22" rx="11" fill="#22c55e"/>
+				<rect x="98" y="177" width="64" height="8" rx="4" fill="#04140a" opacity=".35"/>
+				<!-- lever -->
+				<rect x="205" y="110" width="12" height="30" rx="4" fill="#262c3b"/>
+				<line x1="217" y1="125" x2="232" y2="78" stroke="#8a92a6" stroke-width="6" stroke-linecap="round"/>
+				<circle cx="233" cy="72" r="11" fill="#ef4444"/>
+				<!-- coins -->
+				<g>
+					<circle cx="40" cy="70" r="16" fill="url(#nlg)"/><circle cx="40" cy="70" r="10" fill="none" stroke="#1a1405" stroke-width="2" stroke-dasharray="3 3"/>
+					<circle cx="228" cy="190" r="13" fill="url(#nlg)"/><circle cx="228" cy="190" r="8" fill="none" stroke="#1a1405" stroke-width="2" stroke-dasharray="3 3"/>
+					<circle cx="30" cy="180" r="11" fill="url(#nlg)"/>
+					<circle cx="206" cy="30" r="9" fill="url(#nlg)"/>
+				</g>
+				<!-- sparkles -->
+				<g fill="#ffe08a">
+					<path d="M60 22l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+					<path d="M240 140l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+					<path d="M20 125l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/>
+				</g>
+			</svg>
+		</div>
+	</div>
+</div>
+<script type="speculationrules">
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/cs-game/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 <script id="csgame-main-js-extra">
-var CSGAME = {"ajaxUrl":"#","nonce":"f3a50a9862","i18n":{"copied":"Zkop\u00edrov\u00e1no!","thanks":"D\u011bkujeme za hodnocen\u00ed!","showMore":"Zobrazit v\u00edce","showLess":"Zobrazit m\u00e9n\u011b"}};
+var CSGAME = {"ajaxUrl":"#","nonce":"f3a50a9862","i18n":{"copied":"Zkop\u00edrov\u00e1no!","thanks":"D\u011bkujeme za hodnocen\u00ed!","showMore":"Zobrazit v\u00edce","showLess":"Zobrazit m\u00e9n\u011b"},"popup":{"delay":15,"days":7,"exit":true}};
 //# sourceURL=csgame-main-js-extra
 </script>
 <script id="csgame-main-js" src="../../../wp-content/themes/cs-game/assets/js/main.js"></script>
