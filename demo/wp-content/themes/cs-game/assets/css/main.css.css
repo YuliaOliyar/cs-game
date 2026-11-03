@@ -744,3 +744,51 @@ label { font-size: .9rem; color: var(--text-2); }
 	.features__icon { width: 28px; height: 28px; border-radius: 8px; }
 	.features__icon .ico { width: 15px; height: 15px; }
 }
+
+/* Mobile: bonus cards centered */
+@media (max-width: 640px) {
+	.bonus-card__main { grid-template-columns: 1fr; justify-items: center; text-align: center; gap: 14px; padding: 30px 18px 18px; }
+	.bonus-card__pos { left: auto; right: 12px; top: 12px; }
+	.bonus-card__logo { display: grid; grid-auto-flow: row; justify-items: center; gap: 10px; width: 100%; }
+	.bonus-card__logo .logo-box { width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 14px; }
+	.bonus-card__logo .stars { font-size: 1.2rem; }
+	.bonus-card__logo .stars__num { font-size: 1.05rem; }
+	.bonus-card__info { width: 100%; }
+	.bonus-card__labels, .bonus-card .hashtags { justify-content: center; }
+	.bonus-card__title { font-size: 1.45rem; }
+	.bonus-card__actions { width: 100%; grid-template-columns: 1fr 1fr; }
+	.bonus-card__actions .promo { grid-column: 1 / -1; justify-content: center; gap: 12px; }
+	.bonus-card__details-body { padding: 0 18px 16px; text-align: left; }
+	.bonus-list .bonus-card:not(:has(.bonus-card__pos)) .bonus-card__main { padding-left: 18px; }
+	.mini-bonus__head { flex-direction: column; text-align: center; }
+	.mini-bonus__head .logo-box { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+	.mini-bonus__text { text-align: center; }
+}
+@media (max-width: 640px) {
+	.bonus-card__logo { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; column-gap: 6px; row-gap: 12px; }
+	.bonus-card__logo .logo-box { flex: 0 0 100%; }
+}
+
+/* Bonus in toplist: highlighted badge (not a promo code look) */
+.casino-row__bonus-ico { display: none; }
+@media (max-width: 640px) {
+	.casino-row__bonus {
+		display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto; column-gap: 12px; align-items: center; text-align: left;
+		padding: 12px 14px; border: 0; border-radius: 12px;
+		background: linear-gradient(135deg, rgba(245, 184, 46, .22), rgba(245, 184, 46, .06));
+		box-shadow: inset 0 0 0 1px rgba(245, 184, 46, .25);
+	}
+	.casino-row__bonus-ico {
+		display: grid; place-items: center; grid-row: 1 / span 2; width: 42px; height: 42px; border-radius: 11px;
+		background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: var(--gold-ink);
+	}
+	.casino-row__bonus-ico .ico { width: 22px; height: 22px; }
+	.casino-row__bonus small { color: var(--gold-2); opacity: .8; }
+	.casino-row__bonus strong { font-size: 1.3rem; color: #fff; }
+}
+
+/* Mobile: buttons stacked (primary on top) */
+@media (max-width: 640px) {
+	.casino-row__cta, .bonus-card__actions { grid-template-columns: 1fr; }
+	.casino-row__cta .btn, .bonus-card__actions .btn { min-height: 48px; }
+}

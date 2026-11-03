@@ -52,6 +52,7 @@ if ( ! $q->have_posts() ) {
 				<?php endif; ?>
 
 				<div class="casino-row__bonus">
+					<span class="casino-row__bonus-ico"><?php echo csgame_icon( 'gift' ); // phpcs:ignore ?></span>
 					<?php if ( $btype ) : ?>
 						<small><?php echo esc_html( $btype ); ?></small>
 					<?php endif; ?>
