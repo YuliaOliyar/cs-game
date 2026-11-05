@@ -97,7 +97,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </header>
 
 	<div class="crumbs-bar">
-		<div class="container"><nav class="breadcrumbs" aria-label="Drobečková navigace"><ol><li><a href="../index.html">Domů</a></li><li><span aria-current="page">Casino bonusy</span></li></ol></nav><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Dom\u016f","item":"http:\/\/localhost:8099\/"},{"@type":"ListItem","position":2,"name":"Casino bonusy"}]}</script></div>
+		<div class="container"><nav class="breadcrumbs" aria-label="Drobečková navigace"><ol><li><a href="../index.html"><span class="crumb-emoji" aria-hidden="true">🏠</span>Domů</a></li><li><span aria-current="page"><span class="crumb-emoji" aria-hidden="true">🎁</span>Casino bonusy</span></li></ol></nav><script type="application/ld+json">{"@context":"https:\/\/schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Dom\u016f","item":"http:\/\/localhost:8099\/"},{"@type":"ListItem","position":2,"name":"Casino bonusy"}]}</script></div>
 	</div>
 
 <main id="main" class="site-main">
@@ -117,22 +117,26 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		</span>
 	</span>
 	</div></header>
-		<ul class="features">
-					<li class="features__item">
-			<span class="features__icon"><svg class="ico" aria-hidden="true"><use href="#i-gift"></use></svg></span>
-			<span>Ověřené bonusy</span>
+		<ul class="features" style="--cols:4">
+					<li class="features__item features__item--0">
+			<span class="features__icon" aria-hidden="true">
+				<span class="features__emoji">🎁</span>			</span>
+			<span class="features__text">Ověřené bonusy</span>
 		</li>
-					<li class="features__item">
-			<span class="features__icon"><svg class="ico" aria-hidden="true"><use href="#i-shield"></use></svg></span>
-			<span>Jen licencovaná kasina</span>
+					<li class="features__item features__item--1">
+			<span class="features__icon" aria-hidden="true">
+				<span class="features__emoji">🛡️</span>			</span>
+			<span class="features__text">Jen licencovaná kasina</span>
 		</li>
-					<li class="features__item">
-			<span class="features__icon"><svg class="ico" aria-hidden="true"><use href="#i-clock"></use></svg></span>
-			<span>Aktualizováno denně</span>
+					<li class="features__item features__item--2">
+			<span class="features__icon" aria-hidden="true">
+				<span class="features__emoji">⚡</span>			</span>
+			<span class="features__text">Aktualizováno denně</span>
 		</li>
-					<li class="features__item">
-			<span class="features__icon"><svg class="ico" aria-hidden="true"><use href="#i-coins"></use></svg></span>
-			<span>Exkluzivní promo kódy</span>
+					<li class="features__item features__item--3">
+			<span class="features__icon" aria-hidden="true">
+				<span class="features__emoji">💎</span>			</span>
+			<span class="features__text">Exkluzivní promo kódy</span>
 		</li>
 	</ul>
 
@@ -164,23 +168,152 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 
 		<section class="section bonus-section" data-bonus-list>
 	
-						<div class="bonus-filter" data-collapsible>
-				<button class="bonus-filter__toggle" type="button" aria-expanded="true">
-					<svg class="ico" aria-hidden="true"><use href="#i-filter"></use></svg>					<span>Filtr bonusů</span>
+				<div class="bonus-layout">
+			<aside class="bonus-layout__aside">
+			<div class="bonus-filter is-collapsed" data-collapsible>
+				<button class="bonus-filter__toggle" type="button" aria-expanded="false" aria-controls="bonus-filter-panel">
+					<svg class="ico" aria-hidden="true"><use href="#i-filter"></use></svg>					<span>Filtry</span>
+					<span class="bonus-filter__count" data-filter-count hidden></span>
 					<svg class="ico ico--chev" aria-hidden="true"><use href="#i-chevron"></use></svg>				</button>
-				<div class="bonus-filter__menu" role="group">
-					<button type="button" class="chip is-active" data-filter="*">Všechny</button>
-											<button type="button" class="chip" data-filter="bonus-bez-vkladu">Bez vkladu</button>
-											<button type="button" class="chip" data-filter="bonus-za-vklad">Bonus za vklad</button>
-											<button type="button" class="chip" data-filter="free-spiny">Free spiny</button>
-											<button type="button" class="chip" data-filter="promo-kody">Promo kódy</button>
-											<button type="button" class="chip" data-filter="vitaci-bonus">Vítací bonusy</button>
-											<button type="button" class="chip" data-filter="za-registraci">Za registraci</button>
-									</div>
+				<div class="bonus-filter__panel" id="bonus-filter-panel">
+											<details class="fgroup" open>
+							<summary class="fgroup__head">
+								<span>Typ bonusu</span>
+								<span class="fgroup__badge" data-group-badge hidden></span>
+								<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg>							</summary>
+							<ul class="fgroup__list" role="list">
+																	<li>
+										<button type="button" class="fopt" data-group="type" data-value="bonus-bez-vkladu" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Bez vkladu</span>
+											<sup class="fopt__count">4</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="type" data-value="promo-kody" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Promo kódy</span>
+											<sup class="fopt__count">4</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="type" data-value="za-registraci" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Za registraci</span>
+											<sup class="fopt__count">4</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="type" data-value="free-spiny" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Free spiny</span>
+											<sup class="fopt__count">4</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="type" data-value="vitaci-bonus" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Vítací bonusy</span>
+											<sup class="fopt__count">4</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="type" data-value="bonus-za-vklad" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Bonus za vklad</span>
+											<sup class="fopt__count">2</sup>
+										</button>
+									</li>
+															</ul>
+						</details>
+												<details class="fgroup">
+							<summary class="fgroup__head">
+								<span>Casino</span>
+								<span class="fgroup__badge" data-group-badge hidden></span>
+								<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg>							</summary>
+							<ul class="fgroup__list" role="list">
+																	<li>
+										<button type="button" class="fopt" data-group="casino" data-value="4" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Zlatá Sedmička</span>
+											<sup class="fopt__count">2</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="casino" data-value="6" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Royal Bohemia</span>
+											<sup class="fopt__count">2</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="casino" data-value="8" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Lucky Praha</span>
+											<sup class="fopt__count">2</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="casino" data-value="10" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Vltava Casino</span>
+											<sup class="fopt__count">2</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="casino" data-value="12" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">Karlův Spin</span>
+											<sup class="fopt__count">2</sup>
+										</button>
+									</li>
+															</ul>
+						</details>
+												<details class="fgroup">
+							<summary class="fgroup__head">
+								<span>Ostatní</span>
+								<span class="fgroup__badge" data-group-badge hidden></span>
+								<svg class="ico" aria-hidden="true"><use href="#i-chevron"></use></svg>							</summary>
+							<ul class="fgroup__list" role="list">
+																	<li>
+										<button type="button" class="fopt" data-group="other" data-value="exclusive" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">💎 Exkluzivní bonusy</span>
+											<sup class="fopt__count">2</sup>
+										</button>
+									</li>
+																	<li>
+										<button type="button" class="fopt" data-group="other" data-value="promo" aria-pressed="false">
+											<span class="fopt__check"><svg class="ico" aria-hidden="true"><use href="#i-check"></use></svg></span>
+											<span class="fopt__label">🏷️ S promo kódem</span>
+											<sup class="fopt__count">6</sup>
+										</button>
+									</li>
+															</ul>
+						</details>
+											<div class="bonus-filter__foot">
+						<button type="button" class="btn btn--ghost" data-filter-reset>Zrušit filtry</button>
+						<button type="button" class="btn btn--primary" data-filter-close>Zobrazit <span data-filter-shown>10</span></button>
+					</div>
+				</div>
 			</div>
+			</aside>
+			<div class="bonus-layout__main">
+				<div class="bonus-head">
+					<p class="bonus-head__title"><strong>Aktuální bonusy</strong> <span class="muted">(aktualizováno: 2. 11. 2026)</span></p>
+					<label class="bonus-sort">
+						<span class="screen-reader-text">Řazení</span>
+						<select data-bonus-sort>
+							<option value="pos">Doporučené</option>
+							<option value="rating">Dle hodnocení</option>
+							<option value="date">Nejnovější</option>
+						</select>
+						<svg class="ico" aria-hidden="true" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M7 4v16M3 8l4-4 4 4M17 20V4M13 16l4 4 4-4"/></svg>
+					</label>
+				</div>
 			
 	<ol class="bonus-list">
-		<li class="bonus-card bonus-card--top bonus-card--excl" data-types="bonus-bez-vkladu promo-kody za-registraci">
+		<li class="bonus-card bonus-card--top bonus-card--excl" data-types="bonus-bez-vkladu promo-kody za-registraci" data-casino="4" data-rating="4.9" data-pos="1" data-date="1793616836" data-other="exclusive promo">
 			<span class="bonus-card__pos">1</span>
 	
 	<div class="bonus-card__main">
@@ -217,7 +350,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card bonus-card--excl" data-types="free-spiny promo-kody">
+<li class="bonus-card bonus-card--excl" data-types="free-spiny promo-kody" data-casino="4" data-rating="4.9" data-pos="2" data-date="1793616836" data-other="exclusive promo">
 			<span class="bonus-card__pos">2</span>
 	
 	<div class="bonus-card__main">
@@ -254,7 +387,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card" data-types="bonus-bez-vkladu za-registraci">
+<li class="bonus-card" data-types="bonus-bez-vkladu za-registraci" data-casino="6" data-rating="4.7" data-pos="3" data-date="1793616836" data-other="">
 			<span class="bonus-card__pos">3</span>
 	
 	<div class="bonus-card__main">
@@ -287,7 +420,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card" data-types="free-spiny">
+<li class="bonus-card" data-types="free-spiny" data-casino="6" data-rating="4.7" data-pos="4" data-date="1793616836" data-other="">
 			<span class="bonus-card__pos">4</span>
 	
 	<div class="bonus-card__main">
@@ -320,7 +453,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card" data-types="bonus-bez-vkladu promo-kody za-registraci">
+<li class="bonus-card" data-types="bonus-bez-vkladu promo-kody za-registraci" data-casino="8" data-rating="4.5" data-pos="5" data-date="1793616836" data-other="promo">
 			<span class="bonus-card__pos">5</span>
 	
 	<div class="bonus-card__main">
@@ -356,7 +489,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card" data-types="free-spiny promo-kody">
+<li class="bonus-card" data-types="free-spiny promo-kody" data-casino="8" data-rating="4.5" data-pos="6" data-date="1793616836" data-other="promo">
 			<span class="bonus-card__pos">6</span>
 	
 	<div class="bonus-card__main">
@@ -392,7 +525,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card" data-types="bonus-bez-vkladu vitaci-bonus za-registraci">
+<li class="bonus-card" data-types="bonus-bez-vkladu vitaci-bonus za-registraci" data-casino="10" data-rating="4.2" data-pos="7" data-date="1793616836" data-other="">
 			<span class="bonus-card__pos">7</span>
 	
 	<div class="bonus-card__main">
@@ -425,7 +558,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card" data-types="free-spiny vitaci-bonus">
+<li class="bonus-card" data-types="free-spiny vitaci-bonus" data-casino="10" data-rating="4.2" data-pos="8" data-date="1793616836" data-other="">
 			<span class="bonus-card__pos">8</span>
 	
 	<div class="bonus-card__main">
@@ -458,7 +591,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card" data-types="bonus-za-vklad vitaci-bonus">
+<li class="bonus-card" data-types="bonus-za-vklad vitaci-bonus" data-casino="12" data-rating="3.9" data-pos="9" data-date="1793616837" data-other="promo">
 			<span class="bonus-card__pos">9</span>
 	
 	<div class="bonus-card__main">
@@ -494,7 +627,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 </div>
 		</details>
 	</li>
-<li class="bonus-card" data-types="bonus-za-vklad vitaci-bonus">
+<li class="bonus-card" data-types="bonus-za-vklad vitaci-bonus" data-casino="12" data-rating="3.9" data-pos="10" data-date="1793616837" data-other="promo">
 			<span class="bonus-card__pos">10</span>
 	
 	<div class="bonus-card__main">
@@ -532,7 +665,9 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 	</li>
 	</ol>
 	<p class="bonus-list__empty muted" hidden>Pro zvolený filtr nejsou žádné bonusy.</p>
-</section>
+				</div>
+		</div>
+	</section>
 
 		<aside class="disclaimer" role="note">
 	<span class="badge-18">18+</span>
@@ -606,7 +741,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 		<form class="subscribe__form" method="post" action="#" onsubmit="alert('Statické demo – formuláře nejsou aktivní.');return false;">
 			<input type="hidden" name="action" value="csgame_subscribe">
 			<input type="hidden" name="redirect" value="">
-			<input type="hidden" id="csgame_sub_nonce" name="csgame_sub_nonce" value="b8ea7fde70" /><input type="hidden" name="_wp_http_referer" value="/casino-bonusy/" />			<label class="screen-reader-text" for="sub-email">E-mail</label>
+			<input type="hidden" id="csgame_sub_nonce" name="csgame_sub_nonce" value="344449ebc7" /><input type="hidden" name="_wp_http_referer" value="/casino-bonusy/" />			<label class="screen-reader-text" for="sub-email">E-mail</label>
 			<input id="sub-email" type="email" name="email" required placeholder="Váš e-mail">
 			<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 			<button class="btn btn--primary" type="submit">Odebírat</button>
@@ -752,7 +887,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 					<input type="hidden" name="action" value="csgame_subscribe">
 					<input type="hidden" name="src" value="popup">
 					<input type="hidden" name="redirect" value="">
-					<input type="hidden" id="csgame_sub_nonce" name="csgame_sub_nonce" value="b8ea7fde70" /><input type="hidden" name="_wp_http_referer" value="/casino-bonusy/" />					<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+					<input type="hidden" id="csgame_sub_nonce" name="csgame_sub_nonce" value="344449ebc7" /><input type="hidden" name="_wp_http_referer" value="/casino-bonusy/" />					<input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
 					<div class="nl-pop__row">
 						<label class="screen-reader-text" for="nl-pop-email">E-mail</label>
 						<input id="nl-pop-email" type="email" name="email" required placeholder="Zadejte svůj e-mail" autocomplete="email">
@@ -809,7 +944,7 @@ img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
 {"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/*"},{"not":{"href_matches":["/wp-*.php","/wp-admin/*","/wp-content/uploads/*","/wp-content/*","/wp-content/plugins/*","/wp-content/themes/cs-game/*","/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
 </script>
 <script id="csgame-main-js-extra">
-var CSGAME = {"ajaxUrl":"#","nonce":"f3a50a9862","i18n":{"copied":"Zkop\u00edrov\u00e1no!","thanks":"D\u011bkujeme za hodnocen\u00ed!","showMore":"Zobrazit v\u00edce","showLess":"Zobrazit m\u00e9n\u011b"},"popup":{"delay":15,"days":7,"exit":true}};
+var CSGAME = {"ajaxUrl":"#","nonce":"c46287ccc3","i18n":{"copied":"Zkop\u00edrov\u00e1no!","thanks":"D\u011bkujeme za hodnocen\u00ed!","showMore":"Zobrazit v\u00edce","showLess":"Zobrazit m\u00e9n\u011b"},"popup":{"delay":15,"days":7,"exit":true}};
 //# sourceURL=csgame-main-js-extra
 </script>
 <script id="csgame-main-js" src="../wp-content/themes/cs-game/assets/js/main.js"></script>
