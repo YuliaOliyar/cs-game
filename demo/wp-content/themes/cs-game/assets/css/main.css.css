@@ -973,3 +973,29 @@ html.nl-lock { overflow: hidden; }
 	.bonus-head__title strong { font-size: 1.05rem; }
 	.bonus-sort select { min-height: 38px; font-size: .88rem; padding-left: 12px; }
 }
+
+/* ==========================================================================
+   Blockquote = tip box
+   ========================================================================== */
+.entry-content blockquote, .entry-content .wp-block-quote {
+	position: relative; margin: 2.4em 0 2em; padding: 30px 24px 22px; border: 0; border-radius: 16px;
+	background: radial-gradient(420px 180px at 0% 0%, rgba(245, 184, 46, .14), transparent 70%), linear-gradient(180deg, rgba(245, 184, 46, .05), transparent), var(--surface);
+	box-shadow: inset 0 0 0 1px rgba(245, 184, 46, .45), inset 4px 0 0 var(--gold), 0 12px 30px rgba(0, 0, 0, .25);
+	color: var(--text); font-size: 1.03rem; font-style: normal; line-height: 1.7;
+}
+.entry-content blockquote::before, .entry-content .wp-block-quote::before {
+	content: "💡  Tip"; position: absolute; left: 20px; top: 0; transform: translateY(-50%);
+	padding: 6px 14px 6px 12px; border-radius: 999px;
+	background: linear-gradient(135deg, var(--gold-2), var(--gold)); color: var(--gold-ink);
+	font: 800 .78rem/1.2 var(--font-head); letter-spacing: .06em; text-transform: uppercase;
+	box-shadow: 0 0 0 4px var(--bg), 0 6px 16px rgba(245, 184, 46, .35);
+}
+.entry-content blockquote[data-label]::before { content: "💡  " attr(data-label); }
+.entry-content blockquote p:last-of-type { margin-bottom: 0; }
+.entry-content blockquote strong { color: var(--gold-2); }
+.entry-content blockquote cite { display: block; margin-top: 10px; color: var(--muted); font-size: .88rem; font-style: normal; }
+.entry-content blockquote cite::before { content: "— "; }
+@media (max-width: 640px) {
+	.entry-content blockquote, .entry-content .wp-block-quote { padding: 28px 18px 18px; font-size: 1rem; }
+	.entry-content blockquote::before, .entry-content .wp-block-quote::before { left: 16px; }
+}

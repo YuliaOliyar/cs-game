@@ -138,3 +138,4 @@ function csgame_favicon() {
 	}
 }
 add_action( 'wp_head', 'csgame_favicon', 2 );
+

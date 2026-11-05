@@ -55,3 +55,4 @@ add_shortcode(
 		return csgame_part( 'author-card', array( 'user_id' => $a['id'] ? (int) $a['id'] : (int) get_post_field( 'post_author', get_the_ID() ) ) );
 	}
 );
+

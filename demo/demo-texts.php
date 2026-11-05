@@ -40,9 +40,9 @@ return array(
 <tr><td>Vltava Casino</td><td>600 Kč + 80 FS</td><td>1–3 dny</td><td>200 Kč</td></tr>
 </tbody></table></figure>
 <h2>Platební metody v českých kasinech</h2>
+<h4>Vklady a výběry</h4>
 <p>Vkládat můžete platební kartou, bankovním převodem, přes Apple Pay a Google Pay nebo e-peněženkami. Výběry většina kasin posílá na bankovní účet ověřený na vaše jméno.</p>
-<h4>Tip redakce</h4>
-<p>Vyberte si výplatní metodu hned při prvním vkladu – kasina obvykle posílají výhry stejnou cestou, jakou jste vkládali.</p>
+<blockquote><p>Vyberte si výplatní metodu hned při prvním vkladu – kasina obvykle posílají výhry stejnou cestou, jakou jste vkládali.</p></blockquote>
 <h2>Zodpovědné hraní</h2>
 <p>Hazardní hry jsou zábava, ne způsob výdělku. Nastavte si v kasinu limity vkladů a ztrát a hrajte jen za peníze, které si můžete dovolit prohrát. Pokud máte pocit, že hraní přestává být zábavou, využijte sebevyloučení nebo vyhledejte odbornou pomoc.</p>
 HTML,
@@ -59,6 +59,7 @@ HTML,
 <h3>Promo kódy</h3>
 <p>Speciální kódy odemykají exkluzivní nabídky, které nejsou dostupné běžně. Kód stačí zkopírovat a zadat při registraci nebo vkladu.</p>
 <h2>Jak protočit bonus</h2>
+<h4>Příklad výpočtu</h4>
 <p>Protočení (wagering) určuje, kolikrát musíte bonus prosázet, než ho můžete vybrat. U bonusu 500 Kč s protočením 35× je potřeba vsadit celkem 17 500 Kč.</p>
 <ol>
 <li>Zkontrolujte, na které hry se bonus počítá – automaty obvykle 100 %, ruleta méně.</li>
@@ -70,8 +71,7 @@ HTML,
 <tr><td>Free spiny</td><td>25–40×</td><td>1–7 dní</td></tr>
 <tr><td>Za vklad</td><td>20–35×</td><td>14–30 dní</td></tr>
 </tbody></table></figure>
-<h4>Tip redakce</h4>
-<p>Bonusy s nižší částkou a protočením do 25× mají často vyšší šanci na skutečný výběr než velké bonusy s protočením 50×.</p>
+<blockquote><p>Bonusy s nižší částkou a protočením do 25× mají často vyšší šanci na skutečný výběr než velké bonusy s protočením 50×.</p></blockquote>
 HTML,
 
 	'casino' => <<<'HTML'
@@ -122,13 +122,13 @@ HTML,
 <h3>Protočení v praxi</h3>
 <p>Pokud dostanete 300 Kč s protočením 35×, musíte vsadit celkem 10 500 Kč. <mark>Maximální sázka během protočení je 100 Kč.</mark></p>
 <h2>Tipy, jak z bonusu vytěžit maximum</h2>
+<h4>Výběr hry</h4>
 <ol>
 <li>Hrajte automaty s RTP nad 96 %.</li>
 <li>Sázejte menší částky, ať vydržíte celé protočení.</li>
 <li>Sledujte platnost bonusu v profilu.</li>
 </ol>
-<h4>Upozornění</h4>
-<p>Bonus lze získat jen jednou na osobu, domácnost a IP adresu.</p>
+<blockquote><p>Bonus lze získat jen jednou na osobu, domácnost a IP adresu.</p></blockquote>
 HTML,
 
 	'slots_main' => <<<'HTML'
@@ -147,14 +147,14 @@ HTML,
 <p>Klasické ovocné automaty mají 5–10 linií, moderní video automaty i stovky způsobů výhry.</p>
 <!--more-->
 <h2>Automaty zdarma vs. o peníze</h2>
+<h4>Demo verze</h4>
 <p>V demo verzi hrajete s virtuálními kredity, takže nic neriskujete. Hra o peníze je dostupná jen v licencovaných kasinech po registraci a ověření účtu.</p>
 <figure class="wp-block-table"><table><thead><tr><th></th><th>Demo zdarma</th><th>O peníze</th></tr></thead><tbody>
 <tr><td>Registrace</td><td>Ne</td><td>Ano</td></tr>
 <tr><td>Výhry</td><td>Virtuální</td><td>Skutečné</td></tr>
 <tr><td>Bonusy</td><td>Ne</td><td>Ano</td></tr>
 </tbody></table></figure>
-<h4>Tip redakce</h4>
-<p>Než u automatu vsadíte skutečné peníze, odehrajte v demu alespoň 100 kol a poznejte jeho bonusové funkce.</p>
+<blockquote><p>Než u automatu vsadíte skutečné peníze, odehrajte v demu alespoň 100 kol a poznejte jeho bonusové funkce.</p></blockquote>
 HTML,
 
 	'slot' => <<<'HTML'
@@ -218,6 +218,7 @@ HTML,
 <li>Výplata: na bankovní účet do 24 hodin</li>
 </ul>
 <h2>Co to znamená pro hráče</h2>
+<h4>Pravděpodobnost výhry</h4>
 <p>Velké výhry jsou vzácné a nedají se předvídat. <mark>Hrajte vždy jen za peníze, které si můžete dovolit prohrát.</mark></p>
 <h3>Jak postupovat při velké výhře</h3>
 <ol>
@@ -225,8 +226,7 @@ HTML,
 <li>Požádejte o výběr na bankovní účet na své jméno.</li>
 <li>Výhry z licencovaných kasin jsou v ČR zdaněny už provozovatelem.</li>
 </ol>
-<h4>Komentář redakce</h4>
-<p>Podobné zprávy jsou příjemné, ale hraní by mělo zůstat zábavou.</p>
+<blockquote><p>Podobné zprávy jsou příjemné, ale hraní by mělo zůstat zábavou.</p></blockquote>
 HTML,
 
 	'faq_home' => "Je online casino v ČR legální? | Ano, pokud provozovatel vlastní licenci Ministerstva financí ČR. Seznam licencovaných kasin zveřejňuje ministerstvo.\nJak rychle dostanu výhru? | U nejlepších kasin obvykle do 24 hodin od schválení výběru na bankovní účet.\nCo je bonus bez vkladu? | Peníze nebo free spiny, které kasino připíše po registraci a ověření účtu bez nutnosti vkladu.\nMusím platit daň z výhry? | Ne, daň z výher v licencovaných kasinech odvádí provozovatel.",
