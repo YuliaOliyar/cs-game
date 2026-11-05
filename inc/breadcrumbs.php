@@ -78,6 +78,53 @@ function csgame_breadcrumb_items() {
 	return $items;
 }
 
+/**
+ * Emoji for a breadcrumb item (by URL or current context).
+ */
+function csgame_crumb_emoji( $item, $index, $is_last ) {
+	if ( 0 === $index ) {
+		return '🏠';
+	}
+	$map = array();
+	$bp  = csgame_template_page( 'templates/template-bonuses.php' );
+	$sp  = csgame_template_page( 'templates/template-slots.php' );
+	$blg = (int) get_option( 'page_for_posts' );
+	if ( $bp ) {
+		$map[ get_permalink( $bp ) ] = '🎁';
+	}
+	if ( $sp ) {
+		$map[ get_permalink( $sp ) ] = '🎰';
+	}
+	if ( $blg ) {
+		$map[ get_permalink( $blg ) ] = '📰';
+	}
+	$arch = get_post_type_archive_link( 'casino' );
+	if ( $arch ) {
+		$map[ $arch ] = '⭐';
+	}
+	if ( $item[1] && isset( $map[ $item[1] ] ) ) {
+		return $map[ $item[1] ];
+	}
+	if ( $is_last ) {
+		if ( is_page_template( 'templates/template-bonuses.php' ) || is_tax( array( 'bonus_type', 'bonus_tag' ) ) ) {
+			return '🎁';
+		}
+		if ( is_page_template( 'templates/template-slots.php' ) || is_tax( 'provider' ) ) {
+			return '🎰';
+		}
+		if ( is_home() || is_category() ) {
+			return '📰';
+		}
+		if ( is_post_type_archive( 'casino' ) ) {
+			return '⭐';
+		}
+		if ( is_author() ) {
+			return '👤';
+		}
+	}
+	return '';
+}
+
 function csgame_breadcrumbs() {
 	$items = csgame_breadcrumb_items();
 	if ( count( $items ) < 2 ) {
@@ -90,12 +137,14 @@ function csgame_breadcrumbs() {
 	);
 	echo '<nav class="breadcrumbs" aria-label="' . esc_attr__( 'Drobečková navigace', 'csgame' ) . '"><ol>';
 	foreach ( $items as $i => $item ) {
-		$last = ( $i === count( $items ) - 1 );
+		$last  = ( $i === count( $items ) - 1 );
+		$emoji = apply_filters( 'csgame_breadcrumb_emoji', csgame_crumb_emoji( $item, $i, $last ), $item, $i );
+		$label = ( $emoji ? '<span class="crumb-emoji" aria-hidden="true">' . esc_html( $emoji ) . '</span>' : '' ) . esc_html( $item[0] );
 		echo '<li>';
 		if ( $item[1] && ! $last ) {
-			echo '<a href="' . esc_url( $item[1] ) . '">' . esc_html( $item[0] ) . '</a>';
+			echo '<a href="' . esc_url( $item[1] ) . '">' . $label . '</a>'; // phpcs:ignore
 		} else {
-			echo '<span aria-current="page">' . esc_html( $item[0] ) . '</span>';
+			echo '<span aria-current="page">' . $label . '</span>'; // phpcs:ignore
 		}
 		echo '</li>';
 		$el = array(

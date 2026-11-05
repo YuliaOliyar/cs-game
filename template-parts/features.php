@@ -1,6 +1,9 @@
 <?php
 /**
- * Blok textu s ikonami (pole „Blok s ikonami“).
+ * Blok výhod (pole „Blok s ikonami“).
+ *
+ * Řádek = „ikona | text“. Ikona může být emoji (🎁) nebo název SVG ikony
+ * (gift, shield, clock, coins, trophy, repeat, check, alert, mail, play).
  *
  * @package CSGame
  */
@@ -11,15 +14,23 @@ if ( ! $rows ) {
 	return;
 }
 ?>
-<ul class="features">
-	<?php foreach ( $rows as $r ) : ?>
+<ul class="features" style="--cols:<?php echo (int) min( 4, count( $rows ) ); ?>">
+	<?php foreach ( $rows as $i => $r ) : ?>
 		<?php
-		$icon = isset( $r[1] ) && in_array( $r[0], $allowed, true ) ? $r[0] : 'check';
 		$text = isset( $r[1] ) ? $r[1] : $r[0];
+		$ico  = isset( $r[1] ) ? $r[0] : '✅';
 		?>
-		<li class="features__item">
-			<span class="features__icon"><?php echo csgame_icon( $icon ); // phpcs:ignore ?></span>
-			<span><?php echo esc_html( $text ); ?></span>
+		<li class="features__item features__item--<?php echo (int) ( $i % 4 ); ?>">
+			<span class="features__icon" aria-hidden="true">
+				<?php
+				if ( in_array( $ico, $allowed, true ) ) {
+					echo csgame_icon( $ico ); // phpcs:ignore
+				} else {
+					echo '<span class="features__emoji">' . esc_html( $ico ) . '</span>';
+				}
+				?>
+			</span>
+			<span class="features__text"><?php echo esc_html( $text ); ?></span>
 		</li>
 	<?php endforeach; ?>
 </ul>

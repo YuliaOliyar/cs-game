@@ -30,7 +30,7 @@ function csgame_meta_boxes() {
 			'screen' => array( 'page', 'post', 'casino', 'bonus', 'slot' ),
 			'fields' => array(
 				'intro'         => array( 'type' => 'textarea', 'label' => __( 'Úvodní text (pod nadpisem H1)', 'csgame' ) ),
-				'features'      => array( 'type' => 'textarea', 'label' => __( 'Blok s ikonami – „ikona | text“ (ikony: gift, shield, clock, coins, trophy, repeat, check)', 'csgame' ) ),
+				'features'      => array( 'type' => 'textarea', 'label' => __( 'Blok výhod – „emoji | text“, např. 🎁 | Ověřené bonusy (nebo název ikony: gift, shield, clock, coins, trophy)', 'csgame' ) ),
 				'fact_checker'  => array( 'type' => 'select', 'label' => __( 'Fakta ověřil(a)', 'csgame' ), 'options' => $users ),
 				'show_toc'      => array( 'type' => 'checkbox', 'label' => __( 'Zobrazit obsah článku (H2/H3)', 'csgame' ), 'default' => '1' ),
 				'show_disclaimer' => array( 'type' => 'checkbox', 'label' => __( 'Zobrazit disclaimer 18+', 'csgame' ), 'default' => '1' ),

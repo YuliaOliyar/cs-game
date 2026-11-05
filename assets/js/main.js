@@ -57,49 +57,96 @@
 		} );
 	} );
 
-	/* Bonus filter */
+	/* Bonus filter (groups: type, casino, other; OR inside a group, AND between groups) */
 	$$( '[data-bonus-list]' ).forEach( function ( wrap ) {
 		var box = wrap.querySelector( '.bonus-filter' );
 		if ( ! box ) { return; }
 		var tog = box.querySelector( '.bonus-filter__toggle' );
 		var cards = $$( '.bonus-card', wrap );
 		var empty = wrap.querySelector( '.bonus-list__empty' );
+		var opts = $$( '.fopt', box );
+		var countEl = box.querySelector( '[data-filter-count]' );
+		var shownEl = box.querySelector( '[data-filter-shown]' );
+		var attr = { type: 'data-types', casino: 'data-casino', other: 'data-other' };
 
-		tog.addEventListener( 'click', function () {
-			var c = box.classList.toggle( 'is-collapsed' );
-			tog.setAttribute( 'aria-expanded', c ? 'false' : 'true' );
-		} );
+		var setOpen = function ( open ) {
+			box.classList.toggle( 'is-collapsed', ! open );
+			tog.setAttribute( 'aria-expanded', open ? 'true' : 'false' );
+		};
+		tog.addEventListener( 'click', function () { setOpen( box.classList.contains( 'is-collapsed' ) ); } );
 
-		var apply = function ( slug ) {
+		var apply = function () {
+			var sel = {};
+			opts.forEach( function ( o ) {
+				if ( o.classList.contains( 'is-active' ) ) {
+					var g = o.getAttribute( 'data-group' );
+					( sel[ g ] = sel[ g ] || [] ).push( o.getAttribute( 'data-value' ) );
+				}
+			} );
 			var shown = 0;
 			cards.forEach( function ( card ) {
-				var types = ( card.getAttribute( 'data-types' ) || '' ).split( ' ' );
-				var ok = '*' === slug || types.indexOf( slug ) !== -1;
+				var ok = Object.keys( sel ).every( function ( g ) {
+					var vals = ( card.getAttribute( attr[ g ] ) || '' ).split( ' ' );
+					return sel[ g ].some( function ( v ) { return vals.indexOf( v ) !== -1; } );
+				} );
 				card.hidden = ! ok;
 				if ( ok ) { shown++; }
 			} );
 			if ( empty ) { empty.hidden = shown > 0; }
+			if ( shownEl ) { shownEl.textContent = shown; }
+			var n = opts.filter( function ( o ) { return o.classList.contains( 'is-active' ); } ).length;
+			if ( countEl ) { countEl.textContent = n; countEl.hidden = ! n; }
+			$$( '.fgroup', box ).forEach( function ( grp ) {
+				var k = grp.querySelectorAll( '.fopt.is-active' ).length;
+				var badge = grp.querySelector( '[data-group-badge]' );
+				if ( badge ) { badge.textContent = k; badge.hidden = ! k; }
+			} );
+			var types = sel.type || [];
+			if ( window.history && history.replaceState ) {
+				history.replaceState( null, '', location.pathname + location.search + ( types.length === 1 && Object.keys( sel ).length === 1 ? '#typ-' + types[0] : '' ) );
+			}
 		};
 
-		$$( '[data-filter]', box ).forEach( function ( chip ) {
-			chip.addEventListener( 'click', function () {
-				$$( '[data-filter]', box ).forEach( function ( c ) {
-					c.classList.remove( 'is-active' );
-					c.setAttribute( 'aria-pressed', 'false' );
-				} );
-				chip.classList.add( 'is-active' );
-				chip.setAttribute( 'aria-pressed', 'true' );
-				var slug = chip.getAttribute( 'data-filter' );
-				apply( slug );
-				if ( window.history && history.replaceState ) {
-					history.replaceState( null, '', '*' === slug ? location.pathname : location.pathname + '#typ-' + slug );
-				}
+		opts.forEach( function ( o ) {
+			o.addEventListener( 'click', function () {
+				var on = o.classList.toggle( 'is-active' );
+				o.setAttribute( 'aria-pressed', on ? 'true' : 'false' );
+				apply();
 			} );
 		} );
+		var reset = box.querySelector( '[data-filter-reset]' );
+		if ( reset ) {
+			reset.addEventListener( 'click', function () {
+				opts.forEach( function ( o ) { o.classList.remove( 'is-active' ); o.setAttribute( 'aria-pressed', 'false' ); } );
+				apply();
+			} );
+		}
+		var closeBtn = box.querySelector( '[data-filter-close]' );
+		if ( closeBtn ) {
+			closeBtn.addEventListener( 'click', function () {
+				setOpen( false );
+				var list = wrap.querySelector( '.bonus-list' );
+				if ( list && list.getBoundingClientRect().top < 0 ) { tog.scrollIntoView( { behavior: 'smooth', block: 'start' } ); }
+			} );
+		}
 
-		var m = location.hash.match( /^#typ-(.+)$/ );
+		var sortSel = wrap.querySelector( '[data-bonus-sort]' );
+		if ( sortSel ) {
+			sortSel.addEventListener( 'change', function () {
+				var list = wrap.querySelector( '.bonus-list' );
+				var key = sortSel.value;
+				var num = function ( c, a ) { return parseFloat( c.getAttribute( a ) ) || 0; };
+				cards.slice().sort( function ( a, b ) {
+					if ( 'rating' === key ) { return num( b, 'data-rating' ) - num( a, 'data-rating' ) || num( a, 'data-pos' ) - num( b, 'data-pos' ); }
+					if ( 'date' === key ) { return num( b, 'data-date' ) - num( a, 'data-date' ) || num( a, 'data-pos' ) - num( b, 'data-pos' ); }
+					return num( a, 'data-pos' ) - num( b, 'data-pos' );
+				} ).forEach( function ( c ) { list.appendChild( c ); } );
+			} );
+		}
+
+		var m = location.hash.match( /^#typ-([a-z0-9-]+)$/i );
 		if ( m ) {
-			var pre = box.querySelector( '[data-filter="' + m[1].replace( /[^a-z0-9-]/gi, '' ) + '"]' );
+			var pre = box.querySelector( '.fopt[data-group="type"][data-value="' + m[1] + '"]' );
 			if ( pre ) { pre.click(); }
 		}
 	} );

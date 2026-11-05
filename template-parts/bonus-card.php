@@ -29,7 +29,7 @@ if ( $types && ! is_wp_error( $types ) ) {
 	}
 }
 ?>
-<li class="bonus-card<?php echo 1 === $pos && ! $compact ? ' bonus-card--top' : ''; ?><?php echo $excl ? ' bonus-card--excl' : ''; ?>" data-types="<?php echo esc_attr( implode( ' ', $slugs ) ); ?>">
+<li class="bonus-card<?php echo 1 === $pos && ! $compact ? ' bonus-card--top' : ''; ?><?php echo $excl ? ' bonus-card--excl' : ''; ?>" data-types="<?php echo esc_attr( implode( ' ', $slugs ) ); ?>" data-casino="<?php echo (int) $casino; ?>" data-rating="<?php echo esc_attr( $casino ? (float) csgame_meta( 'rating', $casino ) : 0 ); ?>" data-pos="<?php echo (int) $pos; ?>" data-date="<?php echo esc_attr( get_the_date( 'U' ) ); ?>" data-other="<?php echo esc_attr( trim( ( $excl ? 'exclusive ' : '' ) . ( $code ? 'promo' : '' ) ) ); ?>">
 	<?php if ( $pos && ! $compact ) : ?>
 		<span class="bonus-card__pos"><?php echo (int) $pos; ?></span>
 	<?php endif; ?>
