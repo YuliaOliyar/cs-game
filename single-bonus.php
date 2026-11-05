@@ -28,6 +28,8 @@ while ( have_posts() ) :
 	);
 	?>
 	<div class="container">
+		<div class="bonus-page">
+		<div class="bonus-page__main">
 		<div class="bonus-hero">
 			<div class="bonus-hero__main">
 				<h1 class="page-head__title"><?php the_title(); ?></h1>
@@ -78,6 +80,69 @@ while ( have_posts() ) :
 			</aside>
 		</div>
 
+		<?php /* Desktop: hlavní karta bonusu pod návodem. */ ?>
+		<section class="bonus-big card" aria-label="<?php esc_attr_e( 'Karta bonusu', 'csgame' ); ?>">
+			<div class="bonus-big__brand">
+				<?php echo csgame_logo( $casino ? $casino : $id, 'logo-box logo-box--lg' ); // phpcs:ignore ?>
+				<?php if ( $casino ) : ?>
+					<div class="bonus-big__rating"><?php echo csgame_stars( csgame_meta( 'rating', $casino ) ); // phpcs:ignore ?></div>
+					<a class="bonus-big__casino" href="<?php echo esc_url( get_permalink( $casino ) ); ?>"><?php echo esc_html( get_the_title( $casino ) ); ?></a>
+				<?php endif; ?>
+			</div>
+			<div class="bonus-big__body">
+				<div class="bonus-big__head">
+					<div>
+						<p class="bonus-big__title"><?php echo esc_html( csgame_meta( 'bonus_amount' ) ? csgame_meta( 'bonus_amount' ) : get_the_title() ); ?></p>
+						<?php if ( has_excerpt() ) : ?>
+							<p class="bonus-big__sub"><?php echo esc_html( get_the_excerpt() ); ?></p>
+						<?php endif; ?>
+					</div>
+					<a class="btn btn--primary btn--lg" href="<?php echo esc_url( csgame_aff_url( $id ) ); ?>" <?php echo csgame_aff_attrs(); // phpcs:ignore ?>><?php esc_html_e( 'Získat bonus', 'csgame' ); ?></a>
+				</div>
+				<?php
+				$tiles = array_filter(
+					array(
+						array( 'coins', __( 'Min. vklad', 'csgame' ), csgame_meta( 'min_deposit' ) ),
+						array( 'repeat', __( 'Protočení', 'csgame' ), csgame_meta( 'wagering' ) ),
+						array( 'clock', __( 'Platnost', 'csgame' ), csgame_meta( 'validity' ) ),
+						$code ? array( 'gift', __( 'Promo kód', 'csgame' ), $code ) : array( 'trophy', __( 'Max. výhra', 'csgame' ), csgame_meta( 'max_win' ) ),
+					),
+					function ( $t ) {
+						return '' !== (string) $t[2];
+					}
+				);
+				?>
+				<?php if ( $tiles ) : ?>
+					<ul class="bonus-big__tiles">
+						<?php foreach ( $tiles as $t ) : ?>
+							<li>
+								<span class="bonus-big__ico"><?php echo csgame_icon( $t[0] ); // phpcs:ignore ?></span>
+								<span>
+									<small><?php echo esc_html( $t[1] ); ?></small>
+									<?php if ( $code && $t[2] === $code ) : ?>
+										<button class="bonus-big__code" type="button" data-copy="<?php echo esc_attr( $code ); ?>"><span class="promo__code"><?php echo esc_html( $code ); ?></span> <?php echo csgame_icon( 'copy' ); // phpcs:ignore ?></button>
+									<?php else : ?>
+										<strong><?php echo esc_html( $t[2] ); ?></strong>
+									<?php endif; ?>
+								</span>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
+				<p class="bonus-big__tags">
+					<?php if ( '1' === csgame_meta( 'exclusive' ) ) : ?>
+						<span class="label label--gold">💎 <?php esc_html_e( 'Exkluzivní', 'csgame' ); ?></span>
+					<?php endif; ?>
+					<?php if ( $types && ! is_wp_error( $types ) ) : ?>
+						<?php foreach ( $types as $t ) : ?>
+							<span class="label"><?php echo esc_html( $t->name ); ?></span>
+						<?php endforeach; ?>
+					<?php endif; ?>
+					<small class="muted">18+ | <?php esc_html_e( 'Platí obchodní podmínky', 'csgame' ); ?></small>
+				</p>
+			</div>
+		</section>
+
 		<?php echo csgame_byline(); // phpcs:ignore ?>
 
 		<?php if ( $conds ) : ?>
@@ -103,6 +168,9 @@ while ( have_posts() ) :
 				<?php get_template_part( 'template-parts/faq' ); ?>
 			</div>
 		</div>
+		</div><!-- .bonus-page__main -->
+		<?php get_template_part( 'template-parts/bonus-side', null, array( 'exclude' => $id ) ); ?>
+		</div><!-- .bonus-page -->
 
 		<?php
 		$other = csgame_get_bonuses(
@@ -113,7 +181,7 @@ while ( have_posts() ) :
 		);
 		if ( $other->have_posts() ) :
 			?>
-			<section class="section">
+			<section class="section other-bonuses-section">
 				<h2 class="section__title"><?php esc_html_e( 'Další bonusy', 'csgame' ); ?></h2>
 				<div class="other-bonuses">
 					<?php
