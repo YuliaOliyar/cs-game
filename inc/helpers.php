@@ -271,9 +271,10 @@ function csgame_template_page( $template ) {
 	}
 	$pages = get_pages(
 		array(
-			'meta_key'   => '_wp_page_template', // phpcs:ignore
-			'meta_value' => $template, // phpcs:ignore
-			'number'     => 1,
+			'meta_key'     => '_wp_page_template', // phpcs:ignore
+			'meta_value'   => $template, // phpcs:ignore
+			'number'       => 1,
+			'hierarchical' => 0,
 		)
 	);
 	$cache[ $template ] = $pages ? (int) $pages[0]->ID : 0;

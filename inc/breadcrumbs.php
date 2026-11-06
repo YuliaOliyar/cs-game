@@ -51,7 +51,7 @@ function csgame_breadcrumb_items() {
 	} elseif ( is_home() ) {
 		$items[] = array( single_post_title( '', false ), '' );
 	} elseif ( is_post_type_archive() ) {
-		$items[] = array( post_type_archive_title( '', false ), '' );
+		$items[] = array( is_post_type_archive( 'casino' ) ? csgame_mod( 'csgame_casinos_title' ) : post_type_archive_title( '', false ), '' );
 	} elseif ( is_tax() || is_category() || is_tag() ) {
 		$term = get_queried_object();
 		if ( 'provider' === $term->taxonomy ) {
@@ -105,7 +105,51 @@ function csgame_crumb_emoji( $item, $index, $is_last ) {
 	if ( $item[1] && isset( $map[ $item[1] ] ) ) {
 		return $map[ $item[1] ];
 	}
+	if ( $item[1] && ! $is_last ) {
+		$pid = url_to_postid( $item[1] );
+		if ( $pid && 'page' === get_post_type( $pid ) ) {
+			return '🎲';
+		}
+		foreach ( array( 'provider' => '🏭', 'category' => '🗂️', 'bonus_type' => '🎁', 'bonus_tag' => '🏷️' ) as $tax => $em ) {
+			$terms = get_terms( array( 'taxonomy' => $tax, 'hide_empty' => false ) );
+			if ( ! is_wp_error( $terms ) ) {
+				foreach ( $terms as $t ) {
+					if ( get_term_link( $t ) === $item[1] ) {
+						return $em;
+					}
+				}
+			}
+		}
+		return '';
+	}
 	if ( $is_last ) {
+		if ( is_tax( 'provider' ) ) {
+			return '🏭';
+		}
+		if ( is_tax( 'bonus_tag' ) ) {
+			return '🏷️';
+		}
+		if ( is_category() || is_tag() ) {
+			return '🗂️';
+		}
+		if ( is_singular( 'casino' ) ) {
+			return '🎲';
+		}
+		if ( is_singular( 'bonus' ) ) {
+			return '💰';
+		}
+		if ( is_singular( 'slot' ) ) {
+			return '🕹️';
+		}
+		if ( is_singular( 'post' ) ) {
+			return '📝';
+		}
+		if ( is_404() ) {
+			return '❓';
+		}
+		if ( is_search() ) {
+			return '🔍';
+		}
 		if ( is_page_template( 'templates/template-bonuses.php' ) || is_tax( array( 'bonus_type', 'bonus_tag' ) ) ) {
 			return '🎁';
 		}
@@ -120,6 +164,9 @@ function csgame_crumb_emoji( $item, $index, $is_last ) {
 		}
 		if ( is_author() ) {
 			return '👤';
+		}
+		if ( is_page() ) {
+			return '🎲';
 		}
 	}
 	return '';
