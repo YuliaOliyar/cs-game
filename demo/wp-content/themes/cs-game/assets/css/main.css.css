@@ -1061,3 +1061,36 @@ html.nl-lock { overflow: hidden; }
 	.bonus-big__rating { display: flex; align-items: center; gap: 6px; }
 	.bonus-big__rating .stars { font-size: 1.1rem; }
 }
+
+/* ==========================================================================
+   Bonuses page only: smaller logos, bonus in focus
+   ========================================================================== */
+.page-template-template-bonuses .bonus-card__main { grid-template-columns: 104px minmax(0, 1fr) 210px; }
+.page-template-template-bonuses .bonus-card__logo .logo-box { width: 104px; height: 58px; border-radius: 10px; }
+.page-template-template-bonuses .bonus-card__logo .stars { font-size: .8rem; letter-spacing: 1px; }
+.page-template-template-bonuses .bonus-card__logo .stars__num { font-size: .85rem; }
+.page-template-template-bonuses .bonus-card__title { font-size: 1.6rem; line-height: 1.2; }
+.page-template-template-bonuses .bonus-card__casino { font-size: .85rem; }
+@media (min-width: 1024px) {
+	.page-template-template-bonuses .bonus-card__main { grid-template-columns: 104px minmax(0, 1fr) 200px; }
+	.page-template-template-bonuses .bonus-card__logo .logo-box { width: 104px; height: 58px; }
+}
+@media (max-width: 640px) {
+	.page-template-template-bonuses .bonus-card__main { padding-top: 22px; gap: 12px; }
+	.page-template-template-bonuses .bonus-card__logo { flex-wrap: nowrap; column-gap: 12px; }
+	.page-template-template-bonuses .bonus-card__logo .logo-box { flex: 0 0 auto; width: 112px; height: 63px; aspect-ratio: auto; }
+	.page-template-template-bonuses .bonus-card__title { font-size: 1.65rem; }
+}
+@media (max-width: 860px) {
+	.page-template-template-bonuses .bonus-card__main { grid-template-columns: 104px minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+	.page-template-template-bonuses .bonus-card__main { grid-template-columns: minmax(0, 1fr); }
+}
+@media (min-width: 861px) {
+	.page-template-template-bonuses .bonus-card__main { grid-template-columns: 112px minmax(0, 1fr) 200px; }
+	.page-template-template-bonuses .bonus-card__logo .logo-box { width: 112px; height: 63px; }
+	.page-template-template-bonuses .bonus-card__logo { column-gap: 4px; }
+	.page-template-template-bonuses .bonus-card__logo .stars { font-size: .72rem; letter-spacing: 0; }
+	.page-template-template-bonuses .bonus-card__logo .stars__num { margin-left: 2px; font-size: .8rem; }
+}
