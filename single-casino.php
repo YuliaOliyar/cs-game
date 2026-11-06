@@ -15,8 +15,8 @@ while ( have_posts() ) :
 	$table  = csgame_pairs( csgame_meta( 'review_table' ) );
 	$provs  = csgame_pairs( csgame_meta( 'providers_list' ) );
 	$blocks = array(
-		array( 'coins', __( 'Způsoby vkladu', 'csgame' ), csgame_lines( csgame_meta( 'deposit_methods' ) ) ),
-		array( 'repeat', __( 'Způsoby výběru', 'csgame' ), csgame_lines( csgame_meta( 'withdrawal_methods' ) ) ),
+		array( 'coins', __( 'Způsoby vkladu', 'csgame' ), csgame_lines( csgame_meta( 'deposit_methods' ) ), 'deposit_methods' ),
+		array( 'repeat', __( 'Způsoby výběru', 'csgame' ), csgame_lines( csgame_meta( 'withdrawal_methods' ) ), 'withdrawal_methods' ),
 		array( 'play', __( 'Typy her', 'csgame' ), csgame_lines( csgame_meta( 'game_types' ) ) ),
 	);
 	$bonuses = csgame_get_bonuses(
@@ -87,11 +87,15 @@ while ( have_posts() ) :
 						<span class="expand__title"><?php echo esc_html( $b[1] ); ?> <small class="muted">(<?php echo count( $b[2] ); ?>)</small></span>
 						<?php echo csgame_icon( 'chevron' ); // phpcs:ignore ?>
 					</summary>
-					<ul class="chips">
-						<?php foreach ( $b[2] as $item ) : ?>
-							<li class="chip"><?php echo esc_html( $item ); ?></li>
-						<?php endforeach; ?>
-					</ul>
+					<?php if ( ! empty( $b[3] ) ) : ?>
+						<div class="expand__body"><?php echo csgame_pay_list( csgame_meta( $b[3] ) ); // phpcs:ignore ?></div>
+					<?php else : ?>
+						<ul class="chips">
+							<?php foreach ( $b[2] as $item ) : ?>
+								<li class="chip"><?php echo esc_html( $item ); ?></li>
+							<?php endforeach; ?>
+						</ul>
+					<?php endif; ?>
 				</details>
 			<?php endforeach; ?>
 		</div>

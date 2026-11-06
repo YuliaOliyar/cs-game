@@ -199,6 +199,12 @@ function csgame_svg_sprite() {
 		<symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h18v14H3zM3 6l9 7 9-7"/></symbol>
 		<symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></symbol>
 		<symbol id="i-filter" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h18l-7 8v6l-4-2v-4z"/></symbol>
+		<symbol id="i-bank" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 9 12 4l9 5H3zM5 9v8M9.5 9v8M14.5 9v8M19 9v8M3 20h18"/></symbol>
+		<symbol id="i-card" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M2.5 10h19M6 15h4"/></symbol>
+		<symbol id="i-phone" viewBox="0 0 24 24"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M11 18h2M9.5 9.5a3.5 3.5 0 0 1 5 0M10.8 11.6a1.6 1.6 0 0 1 2.4 0"/></symbol>
+		<symbol id="i-wallet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 7h14a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h11v3M15 13.5h2"/></symbol>
+		<symbol id="i-voucher" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 7h18v3a2 2 0 0 0 0 4v3H3v-3a2 2 0 0 0 0-4zM14 7v10" stroke-dasharray="0"/></symbol>
+		<symbol id="i-crypto" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M9.5 7.5v9M9.5 8h4a2 2 0 0 1 0 4h-4m0 0h4.5a2 2 0 0 1 0 4H9.5M11 6v2M11 16v2"/></symbol>
 		<symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"/></symbol>
 		<symbol id="i-facebook" viewBox="0 0 24 24"><path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-4 1.8-4 4.3V10H7v4h3v8h4v-8h3l1-4h-4V8.6c0-.4.3-.6 1-.6z"/></symbol>
 		<symbol id="i-x-social" viewBox="0 0 24 24"><path fill="currentColor" d="M17.5 3h3.2l-7 8 8.3 10h-6.5l-5-6.2L4.8 21H1.6l7.5-8.6L1.2 3h6.6l4.5 5.7zM16.4 19.2h1.8L6.7 4.7H4.8z"/></symbol>
@@ -286,4 +292,54 @@ function csgame_section( $type ) {
 		return array( csgame_mod( 'csgame_casinos_title' ), get_post_type_archive_link( 'casino' ) );
 	}
 	return null;
+}
+
+/**
+ * Payment method: [icon, color class] by name keywords.
+ */
+function csgame_pay_kind( $name ) {
+	$n     = function_exists( 'mb_strtolower' ) ? mb_strtolower( $name ) : strtolower( $name );
+	$kinds = array(
+		'phone'   => array( 'apple pay', 'google pay', 'samsung pay', 'platba mobilem', 'sms' ),
+		'card'    => array( 'visa', 'master', 'maestro', 'karta', 'card', 'amex' ),
+		'bank'    => array( 'převod', 'prevod', 'bank', 'transfer', 'trustly', 'bankid' ),
+		'voucher' => array( 'paysafe', 'voucher', 'kupon', 'flexepin', 'neosurf' ),
+		'crypto'  => array( 'bitcoin', 'crypto', 'krypto', 'ethereum', 'usdt', 'litecoin' ),
+		'wallet'  => array( 'skrill', 'neteller', 'paypal', 'muchbetter', 'revolut', 'ecopayz', 'jeton', 'aircash', 'peněženk' ),
+	);
+	foreach ( $kinds as $kind => $words ) {
+		foreach ( $words as $w ) {
+			if ( false !== strpos( $n, $w ) ) {
+				return $kind;
+			}
+		}
+	}
+	return 'wallet';
+}
+
+/**
+ * Payment methods list (rows with logo tile). Lines: „Název“ or „Název | URL loga“.
+ */
+function csgame_pay_list( $text, $visible = 5 ) {
+	$rows = csgame_pairs( $text );
+	if ( ! $rows ) {
+		return '';
+	}
+	$total = count( $rows );
+	$html  = '<ul class="pay-list" data-pay-list>';
+	foreach ( $rows as $i => $r ) {
+		$name = $r[0];
+		$logo = isset( $r[1] ) ? esc_url( $r[1] ) : '';
+		$kind = csgame_pay_kind( $name );
+		$tile = $logo
+			? '<span class="pay-tile pay-tile--img"><img src="' . $logo . '" alt="" loading="lazy"></span>'
+			: '<span class="pay-tile pay-tile--' . esc_attr( $kind ) . '">' . csgame_icon( $kind ) . '</span>';
+		$html .= '<li class="pay-item"' . ( $i >= $visible ? ' hidden' : '' ) . '>' . $tile . '<span class="pay-name">' . esc_html( $name ) . '</span></li>';
+	}
+	$html .= '</ul>';
+	if ( $total > $visible ) {
+		/* translators: %d: number of hidden payment methods */
+		$html .= '<button type="button" class="pay-more" data-pay-more>' . esc_html( sprintf( __( 'a další %d…', 'csgame' ), $total - $visible ) ) . '</button>';
+	}
+	return $html;
 }

@@ -320,3 +320,14 @@
 		} );
 	}
 } )();
+
+/* Payment methods: show more */
+document.addEventListener( 'click', function ( e ) {
+	var btn = e.target.closest( '[data-pay-more]' );
+	if ( ! btn ) { return; }
+	var list = btn.previousElementSibling;
+	if ( list ) {
+		Array.prototype.forEach.call( list.querySelectorAll( '.pay-item[hidden]' ), function ( li ) { li.hidden = false; } );
+	}
+	btn.remove();
+} );

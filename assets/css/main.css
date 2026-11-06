@@ -1094,3 +1094,23 @@ html.nl-lock { overflow: hidden; }
 	.page-template-template-bonuses .bonus-card__logo .stars { font-size: .72rem; letter-spacing: 0; }
 	.page-template-template-bonuses .bonus-card__logo .stars__num { margin-left: 2px; font-size: .8rem; }
 }
+
+/* ==========================================================================
+   Payment methods list (casino review)
+   ========================================================================== */
+.expand__body { padding: 0 14px 16px; }
+.pay-list { display: grid; gap: 8px; margin: 0; padding: 0; list-style: none; }
+.pay-item { display: flex; align-items: center; gap: 14px; padding: 8px 12px 8px 8px; border-radius: 12px; background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--border); }
+.pay-item[hidden] { display: none; }
+.pay-name { color: #fff; font-weight: 700; font-size: .95rem; }
+.pay-tile { --a: #f5b82e; --b: #c7860f; display: grid; place-items: center; flex: none; width: 46px; height: 46px; border-radius: 11px; color: #fff; background: linear-gradient(135deg, var(--a), var(--b)); box-shadow: 0 6px 14px rgba(0, 0, 0, .3); }
+.pay-tile .ico { width: 24px; height: 24px; }
+.pay-tile--card { --a: #3b82f6; --b: #1d4ed8; }
+.pay-tile--phone { --a: #475569; --b: #1e293b; }
+.pay-tile--bank { --a: #6366f1; --b: #4338ca; }
+.pay-tile--wallet { --a: #a855f7; --b: #7e22ce; }
+.pay-tile--voucher { --a: #0ea5e9; --b: #0369a1; }
+.pay-tile--crypto { --a: #f59e0b; --b: #b45309; }
+.pay-tile--img { background: #fff; padding: 5px; }
+.pay-tile--img img { width: 100%; height: 100%; object-fit: contain; }
+.pay-more { display: block; margin: 10px auto 0; padding: 4px 8px; border: 0; background: none; color: var(--gold); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
