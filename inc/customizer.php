@@ -28,6 +28,7 @@ function csgame_defaults() {
 		'csgame_slots_intro'    => '',
 		'csgame_casinos_title'  => 'Recenze online kasin',
 		'csgame_blog_title'     => 'Novinky',
+		'csgame_contact_email'  => '',
 	);
 }
 
@@ -64,6 +65,12 @@ function csgame_customize( $wp_customize ) {
 				'csgame_pop_days'  => array( 'number', __( 'Znovu zobrazit nejdříve po (dnech)', 'csgame' ) ),
 			),
 		),
+		'csgame_contact' => array(
+			'title'  => __( 'Kontakt', 'csgame' ),
+			'fields' => array(
+				'csgame_contact_email' => array( 'email', __( 'E-mail pro zprávy z kontaktního formuláře (prázdné = e-mail administrátora)', 'csgame' ) ),
+			),
+		),
 		'csgame_archives' => array(
 			'title'  => __( 'Archivy (bonusy, automaty, kasina, blog)', 'csgame' ),
 			'fields' => array(
@@ -85,7 +92,7 @@ function csgame_customize( $wp_customize ) {
 				$key,
 				array(
 					'default'           => isset( $d[ $key ] ) ? $d[ $key ] : '',
-					'sanitize_callback' => 'textarea' === $f[0] ? 'wp_kses_post' : ( 'checkbox' === $f[0] ? 'csgame_sanitize_check' : ( 'number' === $f[0] ? 'absint' : 'sanitize_text_field' ) ),
+					'sanitize_callback' => 'textarea' === $f[0] ? 'wp_kses_post' : ( 'checkbox' === $f[0] ? 'csgame_sanitize_check' : ( 'number' === $f[0] ? 'absint' : ( 'email' === $f[0] ? 'sanitize_email' : 'sanitize_text_field' ) ) ),
 				)
 			);
 			$wp_customize->add_control( $key, array( 'label' => $f[1], 'section' => $sid, 'type' => $f[0] ) );

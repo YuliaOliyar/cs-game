@@ -29,7 +29,7 @@ if ( ! $q->have_posts() ) {
 			$bonus = csgame_meta( 'bonus_text', $id );
 			$btype = csgame_meta( 'bonus_type_label', $id );
 			?>
-			<li class="casino-row<?php echo 1 === $pos ? ' casino-row--top' : ''; ?>">
+			<li class="casino-row<?php echo 1 === $pos ? ' casino-row--top' : ''; ?><?php echo csgame_is_unlicensed( $id ) ? ' casino-row--unlic' : ''; ?>">
 				<?php if ( 1 === $pos ) : ?>
 					<span class="casino-row__ribbon"><?php echo csgame_icon( 'trophy' ); // phpcs:ignore ?> <?php esc_html_e( 'Nejlepší volba', 'csgame' ); ?></span>
 				<?php endif; ?>
@@ -62,7 +62,11 @@ if ( ! $q->have_posts() ) {
 				</div>
 
 				<div class="casino-row__cta">
-					<a class="btn btn--primary btn--block" href="<?php echo esc_url( csgame_aff_url( $id ) ); ?>" <?php echo csgame_aff_attrs(); // phpcs:ignore ?>><?php esc_html_e( 'Hrát', 'csgame' ); ?></a>
+					<?php if ( csgame_is_unlicensed( $id ) ) : ?>
+						<span class="label label--danger casino-row__unlic"><?php echo csgame_icon( 'alert' ); // phpcs:ignore ?> <?php esc_html_e( 'Bez licence', 'csgame' ); ?></span>
+					<?php else : ?>
+						<a class="btn btn--primary btn--block" href="<?php echo esc_url( csgame_aff_url( $id ) ); ?>" <?php echo csgame_aff_attrs(); // phpcs:ignore ?>><?php esc_html_e( 'Hrát', 'csgame' ); ?></a>
+					<?php endif; ?>
 					<a class="btn btn--ghost btn--block" href="<?php the_permalink(); ?>"><?php esc_html_e( 'Recenze', 'csgame' ); ?></a>
 				</div>
 			</li>

@@ -318,5 +318,8 @@ foreach ( $providers as $p ) {
 }
 $menu( 'Poskytovatelé', 'providers', $prov_links );
 
+/* Informační stránky + ukázka nelegálního kasina */
+require __DIR__ . '/seed-pages.php';
+
 flush_rewrite_rules();
 echo "Demo obsah vytvořen.\n";

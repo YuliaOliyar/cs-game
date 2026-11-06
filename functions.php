@@ -18,6 +18,7 @@ require CSGAME_DIR . '/inc/breadcrumbs.php';
 require CSGAME_DIR . '/inc/toc.php';
 require CSGAME_DIR . '/inc/reviews.php';
 require CSGAME_DIR . '/inc/subscribe.php';
+require CSGAME_DIR . '/inc/contact.php';
 require CSGAME_DIR . '/inc/slot-filter.php';
 require CSGAME_DIR . '/inc/customizer.php';
 require CSGAME_DIR . '/inc/shortcodes.php';

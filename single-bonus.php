@@ -28,6 +28,11 @@ while ( have_posts() ) :
 	);
 	?>
 	<div class="container">
+		<?php
+		if ( $casino && csgame_is_unlicensed( $casino ) ) {
+			get_template_part( 'template-parts/unlicensed', null, array( 'casino_id' => $casino ) );
+		}
+		?>
 		<div class="bonus-page">
 		<div class="bonus-page__main">
 		<div class="bonus-hero">

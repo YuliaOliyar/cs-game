@@ -54,7 +54,72 @@ function csgame_stars( $rating, $show_number = true ) {
 /**
  * Affiliate URL of a casino / bonus.
  */
+/**
+ * Is the casino unlicensed (no MF ČR licence)? Accepts casino or bonus ID.
+ */
+function csgame_is_unlicensed( $post_id ) {
+	$post_id = (int) $post_id;
+	if ( ! $post_id ) {
+		return false;
+	}
+	if ( 'bonus' === get_post_type( $post_id ) ) {
+		$post_id = (int) get_post_meta( $post_id, '_cs_casino_id', true );
+	}
+	return $post_id && '1' === get_post_meta( $post_id, '_cs_unlicensed', true );
+}
+
+/**
+ * IDs of unlicensed casinos (cached per request).
+ */
+function csgame_unlicensed_ids() {
+	static $ids = null;
+	if ( null === $ids ) {
+		$ids = get_posts(
+			array(
+				'post_type'        => 'casino',
+				'post_status'      => 'any',
+				'numberposts'      => -1,
+				'fields'           => 'ids',
+				'meta_key'         => '_cs_unlicensed', // phpcs:ignore
+				'meta_value'       => '1', // phpcs:ignore
+				'suppress_filters' => true,
+			)
+		);
+		$ids = array_map( 'intval', $ids );
+	}
+	return $ids;
+}
+
+/**
+ * Meta query: only licensed casinos.
+ */
+function csgame_licensed_meta_query() {
+	return array(
+		'relation' => 'OR',
+		array( 'key' => '_cs_unlicensed', 'compare' => 'NOT EXISTS' ),
+		array( 'key' => '_cs_unlicensed', 'value' => '1', 'compare' => '!=' ),
+	);
+}
+
+/**
+ * Meta query: only bonuses of licensed casinos.
+ */
+function csgame_licensed_bonus_meta_query() {
+	$ids = csgame_unlicensed_ids();
+	if ( ! $ids ) {
+		return array();
+	}
+	return array(
+		'relation' => 'OR',
+		array( 'key' => '_cs_casino_id', 'compare' => 'NOT EXISTS' ),
+		array( 'key' => '_cs_casino_id', 'value' => array_map( 'strval', $ids ), 'compare' => 'NOT IN' ),
+	);
+}
+
 function csgame_aff_url( $post_id ) {
+	if ( csgame_is_unlicensed( $post_id ) ) {
+		return '';
+	}
 	$url = csgame_meta( 'affiliate_url', $post_id );
 	if ( ! $url && 'bonus' === get_post_type( $post_id ) ) {
 		$casino = (int) csgame_meta( 'casino_id', $post_id );
@@ -160,6 +225,7 @@ function csgame_get_casinos( $limit = 10, $ids = array() ) {
 		$args['post__in'] = array_map( 'intval', $ids );
 		$args['orderby']  = 'post__in';
 	}
+	$args['meta_query'] = csgame_licensed_meta_query(); // phpcs:ignore -- toplisty nikdy nezobrazují nelegální kasina
 	return new WP_Query( $args );
 }
 
@@ -173,7 +239,24 @@ function csgame_get_bonuses( $args = array() ) {
 		'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
 		'no_found_rows'  => true,
 	);
-	return new WP_Query( wp_parse_args( $args, $defaults ) );
+	$args = wp_parse_args( $args, $defaults );
+	$lic  = csgame_licensed_bonus_meta_query();
+	if ( $lic ) {
+		$extra = array();
+		if ( ! empty( $args['meta_key'] ) ) {
+			$extra = array( 'key' => $args['meta_key'], 'value' => isset( $args['meta_value'] ) ? $args['meta_value'] : '' );
+			unset( $args['meta_key'], $args['meta_value'] );
+		}
+		$mq = array( 'relation' => 'AND', $lic );
+		if ( $extra ) {
+			$mq[] = $extra;
+		}
+		if ( ! empty( $args['meta_query'] ) ) {
+			$mq[] = $args['meta_query'];
+		}
+		$args['meta_query'] = $mq; // phpcs:ignore
+	}
+	return new WP_Query( $args );
 }
 
 /**
@@ -344,3 +427,30 @@ function csgame_pay_list( $text, $visible = 5 ) {
 	}
 	return $html;
 }
+
+/**
+ * Bonus taxonomy archives: hide bonuses of unlicensed casinos.
+ */
+function csgame_hide_unlicensed_bonuses( $q ) {
+	if ( is_admin() || ! $q->is_main_query() || ! $q->is_tax( array( 'bonus_type', 'bonus_tag' ) ) ) {
+		return;
+	}
+	$lic = csgame_licensed_bonus_meta_query();
+	if ( $lic ) {
+		$q->set( 'meta_query', array( $lic ) );
+	}
+}
+add_action( 'pre_get_posts', 'csgame_hide_unlicensed_bonuses', 30 );
+
+/**
+ * Body class on pages of unlicensed casinos (and their bonuses).
+ */
+add_filter(
+	'body_class',
+	function ( $classes ) {
+		if ( is_singular( array( 'casino', 'bonus' ) ) && csgame_is_unlicensed( get_queried_object_id() ) ) {
+			$classes[] = 'cs-unlicensed';
+		}
+		return $classes;
+	}
+);

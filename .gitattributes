@@ -1,6 +1,7 @@
 # Statický náhled pro GitHub Pages – nepatří do ZIPu tématu (Code → Download ZIP)
 /demo/** export-ignore
 /demo/seed-demo.php -export-ignore
+/demo/seed-pages.php -export-ignore
 /demo/demo-texts.php -export-ignore
 /index.html export-ignore
 /logo.svg export-ignore

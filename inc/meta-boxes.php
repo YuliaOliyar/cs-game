@@ -39,6 +39,15 @@ function csgame_meta_boxes() {
 				'faq'           => array( 'type' => 'textarea', 'label' => __( 'FAQ – na řádek „Otázka | Odpověď“', 'csgame' ), 'rows' => 6 ),
 			),
 		),
+		'csgame_info'   => array(
+			'title'  => __( 'CS Game – informační stránka (O nás, Kontakt, Jak hodnotíme)', 'csgame' ),
+			'screen' => array( 'page' ),
+			'fields' => array(
+				'info_cards' => array( 'type' => 'textarea', 'rows' => 6, 'label' => __( 'Karty – „emoji | Nadpis | Text“ (Kontakt: kontaktní údaje; O nás: naše hodnoty; Jak hodnotíme: kritéria – „emoji | Název | váha % | popis“)', 'csgame' ) ),
+				'info_steps' => array( 'type' => 'textarea', 'rows' => 5, 'label' => __( 'Kroky / postup – „Nadpis | Text“ (O nás: náš příběh; Jak hodnotíme: proces testování)', 'csgame' ) ),
+				'info_team'  => array( 'type' => 'text', 'label' => __( 'O nás: ID autorů v týmu, oddělená čárkou (prázdné = všichni autoři)', 'csgame' ) ),
+			),
+		),
 		'csgame_toplist' => array(
 			'title'  => __( 'CS Game – toplist kasin (vitrína)', 'csgame' ),
 			'screen' => array( 'page', 'post', 'slot' ),
@@ -53,6 +62,9 @@ function csgame_meta_boxes() {
 			'title'  => __( 'Údaje o kasinu', 'csgame' ),
 			'screen' => array( 'casino' ),
 			'fields' => array(
+				'unlicensed'         => array( 'type' => 'checkbox', 'label' => __( '⚠️ Kasino BEZ licence MF ČR (nelegální) – skryje odkazy do kasina a doporučí legální alternativy', 'csgame' ) ),
+				'unlicensed_note'    => array( 'type' => 'textarea', 'label' => __( 'Vlastní text varování (prázdné = výchozí text)', 'csgame' ), 'rows' => 3 ),
+				'alternatives'       => array( 'type' => 'text', 'label' => __( 'Doporučená kasina místo něj – ID oddělená čárkou (prázdné = nejlépe hodnocená)', 'csgame' ) ),
 				'rating'             => array( 'type' => 'number', 'label' => __( 'Hodnocení (0–5)', 'csgame' ), 'step' => '0.1' ),
 				'affiliate_url'      => array( 'type' => 'url', 'label' => __( 'Affiliate odkaz', 'csgame' ) ),
 				'bonus_text'         => array( 'type' => 'text', 'label' => __( 'Hlavní bonus (krátce)', 'csgame' ), 'placeholder' => '300 Kč + 50 FS' ),

@@ -9,7 +9,8 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 	$id     = get_the_ID();
-	$rating = (float) csgame_meta( 'rating' );
+	$rating     = (float) csgame_meta( 'rating' );
+	$unlicensed = csgame_is_unlicensed( $id );
 	$pros   = csgame_lines( csgame_meta( 'pros' ) );
 	$cons   = csgame_lines( csgame_meta( 'cons' ) );
 	$table  = csgame_pairs( csgame_meta( 'review_table' ) );
@@ -32,10 +33,13 @@ while ( have_posts() ) :
 			<?php echo csgame_logo( $id, 'logo-box logo-box--lg' ); // phpcs:ignore ?>
 			<div class="casino-hero__body">
 				<h1 class="page-head__title"><?php the_title(); ?></h1>
+				<?php if ( $unlicensed ) : ?>
+					<span class="label label--danger"><?php echo csgame_icon( 'alert' ); // phpcs:ignore ?> <?php esc_html_e( 'Bez licence – nedoporučujeme', 'csgame' ); ?></span>
+				<?php endif; ?>
 				<?php if ( csgame_meta( 'bonus_type_label' ) ) : ?>
 					<span class="label"><?php echo csgame_icon( 'gift' ); // phpcs:ignore ?><?php echo esc_html( csgame_meta( 'bonus_type_label' ) ); ?></span>
 				<?php endif; ?>
-				<?php if ( csgame_meta( 'bonus_text' ) ) : ?>
+				<?php if ( csgame_meta( 'bonus_text' ) && ! $unlicensed ) : ?>
 					<p class="casino-hero__bonus"><?php echo esc_html( csgame_meta( 'bonus_text' ) ); ?></p>
 				<?php endif; ?>
 				<?php if ( has_excerpt() ) : ?>
@@ -43,12 +47,23 @@ while ( have_posts() ) :
 				<?php endif; ?>
 			</div>
 			<div class="casino-hero__cta">
-				<a class="btn btn--primary btn--lg btn--block" href="<?php echo esc_url( csgame_aff_url( $id ) ); ?>" <?php echo csgame_aff_attrs(); // phpcs:ignore ?>><?php esc_html_e( 'Hrát v kasinu', 'csgame' ); ?></a>
-				<?php if ( $bonuses->have_posts() ) : ?>
-					<a class="btn btn--ghost btn--block" href="#bonusy"><?php esc_html_e( 'Další bonusy', 'csgame' ); ?></a>
+				<?php if ( $unlicensed ) : ?>
+					<a class="btn btn--danger btn--lg btn--block" href="#nelegalni"><?php echo csgame_icon( 'alert' ); // phpcs:ignore ?> <?php esc_html_e( 'Bez licence MF ČR', 'csgame' ); ?></a>
+					<a class="btn btn--primary btn--block" href="#nelegalni"><?php esc_html_e( 'Legální alternativy', 'csgame' ); ?></a>
+				<?php else : ?>
+					<a class="btn btn--primary btn--lg btn--block" href="<?php echo esc_url( csgame_aff_url( $id ) ); ?>" <?php echo csgame_aff_attrs(); // phpcs:ignore ?>><?php esc_html_e( 'Hrát v kasinu', 'csgame' ); ?></a>
+					<?php if ( $bonuses->have_posts() ) : ?>
+						<a class="btn btn--ghost btn--block" href="#bonusy"><?php esc_html_e( 'Další bonusy', 'csgame' ); ?></a>
+					<?php endif; ?>
 				<?php endif; ?>
 			</div>
 		</section>
+
+		<?php
+		if ( $unlicensed ) {
+			get_template_part( 'template-parts/unlicensed', null, array( 'casino_id' => $id ) );
+		}
+		?>
 
 		<section class="score card">
 			<div class="score__total">
