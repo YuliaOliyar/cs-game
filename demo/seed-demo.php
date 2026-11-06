@@ -67,6 +67,18 @@ if ( ! $checker_id ) {
 }
 update_user_meta( $checker_id, 'csgame_position', 'Editor, ověřování faktů' );
 
+/* Fotky autorů (volitelně ze složky CSGAME_DEMO_IMG: avatar-anezka.png, avatar-tomas.png). */
+foreach ( array( $author->ID => 'avatar-anezka.png', $checker_id => 'avatar-tomas.png' ) as $uid => $file ) {
+	if ( $img_dir && file_exists( $img_dir . '/' . $file ) ) {
+		$tmp = wp_tempnam( $file );
+		copy( $img_dir . '/' . $file, $tmp );
+		$aid = media_handle_sideload( array( 'name' => $file, 'tmp_name' => $tmp ), 0 );
+		if ( ! is_wp_error( $aid ) ) {
+			update_user_meta( $uid, 'csgame_photo', wp_get_attachment_url( $aid ) );
+		}
+	}
+}
+
 /* Kasina */
 $casinos = array(
 	array( 'zlata-sedmicka', 'Zlatá Sedmička', 4.9, '300 Kč + 50 FS', 'Bonus bez vkladu' ),
